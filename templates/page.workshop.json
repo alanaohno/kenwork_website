@@ -1,0 +1,96 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 76
+      }
+    },
+    "image_banner_96wgFz": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "image_with_text_Bi8w7c": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_NUpxkM": {
+          "type": "heading",
+          "settings": {
+            "heading": "workshop",
+            "heading_size": "h1"
+          }
+        },
+        "text_9RUfpj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>〒106-0047 </p><p>No. 9 4-15-8 Minamiazabu<br/>Minato-ku, Tokyo<br/><br/>〒106-0047 </p><p>東京都港区南麻布4-15-8 No.9</p><p>首都高天現寺高架下</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NUpxkM",
+        "text_9RUfpj"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_w017.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_j6E6Wf": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".center {display: block; margin-left: auto; margin-right: auto;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.236671430722!2d139.72449511284807!3d35.64654017248431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbe6db778f1%3A0xde5c952b8f422784!2sKENWORK!5e0!3m2!1sen!2sjp!4v1770708416213!5m2!1sen!2sjp\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"center\"></iframe>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_96wgFz",
+    "image_with_text_Bi8w7c",
+    "custom_liquid_j6E6Wf"
+  ]
+}

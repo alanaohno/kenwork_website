@@ -1,0 +1,416 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "escape to work",
+            "heading_size": "h0"
+          }
+        },
+        "heading_cwqrYL": {
+          "type": "heading",
+          "settings": {
+            "heading": "没頭したくなる作業場",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "heading_cwqrYL"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 60
+      }
+    },
+    "1771422073e58f1fbc": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c83cc1b_yRqtPg": {
+          "type": "ai_gen_block_c83cc1b",
+          "settings": {
+            "image": "shopify://shop_images/240505_24830.webp",
+            "desktop_width_percent": 100,
+            "show_logo_overlay": false,
+            "logo_image": "shopify://shop_images/Tanken-TheStandingDesk-white-bigger-subtitle.png",
+            "logo_position": "center",
+            "logo_width_desktop": 50,
+            "logo_width_mobile": 300,
+            "logo_offset": 75,
+            "logo_opacity": 1
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c83cc1b_yRqtPg"
+      ],
+      "settings": {}
+    },
+    "rich_text_PpbKFc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_G9384h": {
+          "type": "heading",
+          "settings": {
+            "heading": "designed in seattle",
+            "heading_size": "h2"
+          }
+        },
+        "heading_AHzyV7": {
+          "type": "heading",
+          "settings": {
+            "heading": "handcrafted in tokyo",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_G9384h",
+        "heading_AHzyV7"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "blocks_iQfUPx": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c83cc1b_bEWBXA": {
+          "type": "ai_gen_block_c83cc1b",
+          "settings": {
+            "image": "shopify://shop_images/240505_24915.jpg",
+            "desktop_width_percent": 100,
+            "show_logo_overlay": false,
+            "logo_image": "shopify://shop_images/Tanken-TheStandingDesk-white-bigger-subtitle.png",
+            "logo_position": "center",
+            "logo_width_desktop": 50,
+            "logo_width_mobile": 300,
+            "logo_offset": 75,
+            "logo_opacity": 1
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c83cc1b_bEWBXA"
+      ],
+      "settings": {}
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Bring nature into your workspace.",
+            "text_style": "subtitle"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "text",
+        "variant_picker",
+        "buy_buttons",
+        "share"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "tanken-the-standing-desk-kiso-hinoki-japanese-cypress",
+        "color_scheme": "scheme-4",
+        "secondary_background": false,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 32,
+        "padding_bottom": 48
+      }
+    },
+    "rich_text_DnBiCA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nFaBzK": {
+          "type": "heading",
+          "settings": {
+            "heading": "邪魔なケーブルを隠せる機能美",
+            "heading_size": "h2"
+          }
+        },
+        "heading_pq4UQm": {
+          "type": "heading",
+          "settings": {
+            "heading": "functional beauty with no visible cables",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nFaBzK",
+        "heading_pq4UQm"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_nyMcNg": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/230221_2393.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_7pmmhr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_L8jWaD": {
+          "type": "heading",
+          "settings": {
+            "heading": "直感的な簡単組み立て",
+            "heading_size": "h2"
+          }
+        },
+        "heading_TdUAWX": {
+          "type": "heading",
+          "settings": {
+            "heading": "intuitive, simple assembly",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_L8jWaD",
+        "heading_TdUAWX"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_PwY7LM": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24759_copy.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_yn8D6E": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_89RND6": {
+          "type": "heading",
+          "settings": {
+            "heading": "国産の無垢木材、天然皮革",
+            "heading_size": "h2"
+          }
+        },
+        "heading_Gaa6zi": {
+          "type": "heading",
+          "settings": {
+            "heading": "solid wood, full-grain leather sourced from Japan",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_89RND6",
+        "heading_Gaa6zi"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_3KpkJN": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24796.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_X9gXeL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jgM8yX": {
+          "type": "heading",
+          "settings": {
+            "heading": "必要なケーブルだけ魅せる",
+            "heading_size": "h2"
+          }
+        },
+        "heading_axnQH4": {
+          "type": "heading",
+          "settings": {
+            "heading": "show only the cables you need",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jgM8yX",
+        "heading_axnQH4"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_YmMpVa": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".center {display: block; margin: 0 auto; max-width: 100%; height: auto;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<img src=\"https://cdn.shopify.com/s/files/1/0985/6601/3207/files/Desk_configurations_medium_1c14d904-bba9-43e9-9af1-04c311ef5226.gif?v=1770705939\" class=\"center\" />",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "video_Pw6Fz7": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "assemble in under 5 minutes",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/BV3beRLRX0s?si=_wk7WdPpXjjaobar",
+        "cover_image": "shopify://shop_images/240505_24910.jpg",
+        "description": "How to assemble in under 5 minutes",
+        "full_width": false,
+        "color_scheme": "scheme-5",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich-text",
+    "1771422073e58f1fbc",
+    "rich_text_PpbKFc",
+    "blocks_iQfUPx",
+    "featured-product",
+    "rich_text_DnBiCA",
+    "image_banner_nyMcNg",
+    "rich_text_7pmmhr",
+    "image_banner_PwY7LM",
+    "rich_text_yn8D6E",
+    "image_banner_3KpkJN",
+    "rich_text_X9gXeL",
+    "custom_liquid_YmMpVa",
+    "video_Pw6Fz7"
+  ]
+}

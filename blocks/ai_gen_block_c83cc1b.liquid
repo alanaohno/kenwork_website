@@ -1,0 +1,244 @@
+{% doc %}
+  @prompt
+    responsive image that adjusts height based on set width.
+    also add option to overlay logo on top of it , make logo width adjustable for mobile and desktop separately
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-responsive-image-{{ ai_gen_id }} {
+    display: block;
+    position: relative;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-responsive-image__wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ai-responsive-image__img-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-responsive-image__placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 300px;
+  }
+
+  .ai-responsive-image__placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  .ai-responsive-image__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-responsive-image__logo-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    z-index: 2;
+    {% if block.settings.logo_position == 'top-left' %}
+      top: {{ block.settings.logo_offset }}px;
+      left: {{ block.settings.logo_offset }}px;
+    {% elsif block.settings.logo_position == 'top-right' %}
+      top: {{ block.settings.logo_offset }}px;
+      right: {{ block.settings.logo_offset }}px;
+    {% elsif block.settings.logo_position == 'bottom-left' %}
+      bottom: {{ block.settings.logo_offset }}px;
+      left: {{ block.settings.logo_offset }}px;
+    {% elsif block.settings.logo_position == 'bottom-right' %}
+      bottom: {{ block.settings.logo_offset }}px;
+      right: {{ block.settings.logo_offset }}px;
+    {% elsif block.settings.logo_position == 'center' %}
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    {% endif %}
+  }
+
+  .ai-responsive-image__logo-img-{{ ai_gen_id }} {
+    width: {{ block.settings.logo_width_desktop }}px;
+    height: auto;
+    display: block;
+    opacity: {{ block.settings.logo_opacity }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-responsive-image-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-responsive-image__logo-img-{{ ai_gen_id }} {
+      width: {{ block.settings.logo_width_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-responsive-image-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-responsive-image__wrapper-{{ ai_gen_id }}">
+    {% if block.settings.image %}
+      <img
+        src="{{ block.settings.image | image_url: width: 2000 }}"
+        alt="{{ block.settings.image.alt | escape }}"
+        loading="lazy"
+        width="{{ block.settings.image.width }}"
+        height="{{ block.settings.image.height }}"
+        class="ai-responsive-image__img-{{ ai_gen_id }}"
+      >
+    {% else %}
+      <div class="ai-responsive-image__placeholder-{{ ai_gen_id }}">
+        {{ 'image' | placeholder_svg_tag }}
+        <div class="ai-responsive-image__empty-state-{{ ai_gen_id }}">
+          Add an image to get started
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_logo_overlay and block.settings.logo_image %}
+      <div class="ai-responsive-image__logo-overlay-{{ ai_gen_id }}">
+        <img
+          src="{{ block.settings.logo_image | image_url: width: 600 }}"
+          alt="{{ block.settings.logo_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.logo_image.width }}"
+          height="{{ block.settings.logo_image.height }}"
+          class="ai-responsive-image__logo-img-{{ ai_gen_id }}"
+        >
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Responsive image",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Logo overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo_overlay",
+      "label": "Show logo overlay",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo image"
+    },
+    {
+      "type": "select",
+      "id": "logo_position",
+      "label": "Logo position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top right"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "logo_width_desktop",
+      "label": "Logo width on desktop",
+      "min": 50,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "label": "Logo width on mobile",
+      "min": 30,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "logo_offset",
+      "label": "Logo offset from edge",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "logo_opacity",
+      "label": "Logo opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Responsive image"
+    }
+  ]
+}
+{% endschema %}

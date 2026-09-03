@@ -1,0 +1,202 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 76
+      }
+    },
+    "image_banner_zqwGHm": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_w001.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "image_with_text_fBU38R": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_E6UkiX": {
+          "type": "heading",
+          "settings": {
+            "heading": "design & craft",
+            "heading_size": "h0"
+          }
+        },
+        "text_Wqe8Mt": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "button_JY3hpi": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_E6UkiX",
+        "text_Wqe8Mt",
+        "button_JY3hpi"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/230221_2876.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-5",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_JYAwgm": {
+      "type": "rich-text",
+      "blocks": {
+        "text_3phbH3": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>Making everyday tech use more organic.</strong></h3><p>I didn’t like that my living spaces that were intended for relaxation started getting invaded by screens, cables, and electronics.</p><p>The ideal way to escape digital fatigue may be to retreat to a cabin in the woods, but that's not always realistic. If I can't immerse myself in nature, why not bring nature into my living space?</p><p>It's easy to find high-functioning standing desks with many embedded features, but none that I would want in my bedroom or living room. They may be functional, but they ruin the serenity of a living space.</p><p>There’s also plenty of beautifully handcrafted artisanal furniture, but none that are compatible with the electronics I depend on daily.</p><p>Through furniture, I wish to make tech more beautiful, organic, and functional.</p>"
+          }
+        },
+        "text_wJPTad": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>日頃使うテクノロジーをもっと心地良くしたい。</strong></h3><p>本来は癒しの空間であるべきの生活空間が徐々にテクノロジーに侵食されていくのに違和感を感じ始めた。</p><p>自分の感性に微弱なストレスをかけ続ける電子機器、スクリーン、配線から開放されるためには山奥の自然の中で生活するのが理想なんだろうけど、非現実的。ならば自分の生活空間に山奥の自然を取り込もうって。<br/><br/>機能満載のスタンディングデスクはあるけど、自分のリビングルームとか寝室に置きたいかって言ったら置きたくない。機能的かもしれないけど機能美は兼ね備えていない。<br/><br/>とても美しく、職人技満載の家具もある。でも自分が日頃から使いこなしているIT機器との相性は悪い。美しいいかもしれないけど機能美は兼ね備えていない。<br/></p><p>僕は家具を通し、テクノロジーをもっと美しく、心地よく、機能的にしていきたい。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_3phbH3",
+        "text_wJPTad"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_LHWa3r": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_YmrCEF": {
+          "type": "heading",
+          "settings": {
+            "heading": "marketing & operations",
+            "heading_size": "h0"
+          }
+        },
+        "text_WdqtFJ": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "button_8EDwYP": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_YmrCEF",
+        "text_WdqtFJ",
+        "button_8EDwYP"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24751.jpg",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-5",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_dBLUYL": {
+      "type": "rich-text",
+      "blocks": {
+        "text_cr767q": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>Humanizing our workspaces.</strong></h3><p>Having worked as a software engineer for a decade, excessive screen time, remote meetings, and back pain has been a constant in my life.<br/> <br/>In a society that has been prioritizing taking the human out of the loop, I found myself making intentional efforts to humanize my personal life. I craved face to face conversations, nature walks, hand-crafted goods…</p><p>Following my desire to be closer to nature, I loaded the standing desk in the trunk of my car and worked remotely from 28 Airbnbs. As long as I had an outlet, I had a stable, reliable workstation that I could set up in under 5 minutes, allowing me to fit work into my life and not the other way around. </p><p>In a society increasingly dominated by automation and sterile, plastic environments, it feels really special to be able to share a product that brings a human touch to our workspaces.<br/></p>"
+          }
+        },
+        "text_69CzJb": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>ワークスペースをより人間らしく。</strong></h3><p>エンジニアとして10年働いてきた中、長すぎるスクリーンタイム、Web会議、そして腰痛が常に付きまとっていました。</p><p>コスト削減のために人間を省く事を優先する現代の風潮の中、自分の人生はより人間らしく生きたいと感じはじめました。自然の中での散歩、面と向かってのコミュニケーション、手作り品などを欲しがる自分がいました。</p><p>自然の近くにいたい願望を追って、車のトランクにスタンディングデスクを積み、28のAirbnbでリモートワークしました。電源さえあれば、安定のワークスペースを5分以内でセットアップでき、自分の生活を仕事に合わせるのではなく、仕事を自分の生活に合わせることができました。</p><p>ますますAI化、自動化、プラスチック化している社会の中で、ワークスペースだけでも人間らしく、自然らしくできる商品を皆さんに提供できる事をとても嬉しく思います。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_cr767q",
+        "text_69CzJb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_zqwGHm",
+    "image_with_text_fBU38R",
+    "rich_text_JYAwgm",
+    "image_with_text_LHWa3r",
+    "rich_text_dBLUYL"
+  ]
+}
