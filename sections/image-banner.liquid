@@ -29,6 +29,30 @@
   }
 {%- endstyle -%}
 
+{%- if section.settings.custom_height_desktop > 0 or section.settings.custom_height_mobile > 0 -%}
+  {%- style -%}
+    {%- if section.settings.custom_height_mobile > 0 -%}
+      @media screen and (max-width: 749px) {
+        #Banner-{{ section.id }} .banner__media {
+          height: {{ section.settings.custom_height_mobile }}px !important;
+        }
+
+        #Banner-{{ section.id }} .banner__content {
+          min-height: {{ section.settings.custom_height_mobile }}px !important;
+        }
+      }
+    {%- endif -%}
+
+    {%- if section.settings.custom_height_desktop > 0 -%}
+      @media screen and (min-width: 750px) {
+        #Banner-{{ section.id }} {
+          min-height: {{ section.settings.custom_height_desktop }}px !important;
+        }
+      }
+    {%- endif -%}
+  {%- endstyle -%}
+{%- endif -%}
+
 {%- liquid
   assign full_width = '100vw'
   assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
@@ -218,6 +242,28 @@
       ],
       "default": "medium",
       "label": "t:sections.image-banner.settings.image_height.label"
+    },
+    {
+      "type": "range",
+      "id": "custom_height_desktop",
+      "min": 0,
+      "max": 2000,
+      "step": 20,
+      "unit": "px",
+      "default": 1500,
+      "label": "Custom height override (desktop)",
+      "info": "0 = use the Image height preset above. Overrides it when set. Width always fills the section automatically."
+    },
+    {
+      "type": "range",
+      "id": "custom_height_mobile",
+      "min": 0,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 600,
+      "label": "Custom height override (mobile)",
+      "info": "0 = use the Image height preset above. Overrides it when set."
     },
     {
       "type": "select",
