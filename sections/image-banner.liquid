@@ -146,12 +146,21 @@
           {%- when 'heading' -%}
             <h2
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
+              {% if block.settings.heading_font_size > 0 %}
+                style="font-size: {{ block.settings.heading_font_size }}px;"
+              {% endif %}
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
-            <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+            <div
+              class="banner__text rte {{ block.settings.text_style }}"
+              {% if block.settings.text_font_size > 0 %}
+                style="font-size: {{ block.settings.text_font_size }}px;"
+              {% endif %}
+              {{ block.shopify_attributes }}
+            >
               <p>{{ block.settings.text }}</p>
             </div>
           {%- when 'buttons' -%}
@@ -445,6 +454,17 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "range",
+          "id": "heading_font_size",
+          "min": 0,
+          "max": 160,
+          "step": 4,
+          "unit": "px",
+          "default": 0,
+          "label": "Custom font size override",
+          "info": "0 = use the size preset above."
         }
       ]
     },
@@ -478,6 +498,17 @@
           ],
           "default": "body",
           "label": "t:sections.image-banner.blocks.text.settings.text_style.label"
+        },
+        {
+          "type": "range",
+          "id": "text_font_size",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 0,
+          "label": "Custom font size override",
+          "info": "0 = use the style preset above."
         }
       ]
     },
