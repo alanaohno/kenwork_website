@@ -9,8 +9,9 @@
  */
 {
   "sections": {
-    "rich-text": {
-      "type": "rich-text",
+    "hero_banner": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
       "blocks": {
         "heading": {
           "type": "heading",
@@ -20,10 +21,10 @@
           }
         },
         "heading_cwqrYL": {
-          "type": "heading",
+          "type": "text",
           "settings": {
-            "heading": "没頭したくなる作業場",
-            "heading_size": "h2"
+            "text": "没頭したくなる作業場",
+            "text_style": "subtitle"
           }
         }
       },
@@ -32,37 +33,18 @@
         "heading_cwqrYL"
       ],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
+        "image": "shopify://shop_images/240505_24830.webp",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
         "color_scheme": "scheme-5",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 60
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
       }
-    },
-    "1771422073e58f1fbc": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_c83cc1b_yRqtPg": {
-          "type": "ai_gen_block_c83cc1b",
-          "settings": {
-            "image": "shopify://shop_images/240505_24830.webp",
-            "desktop_width_percent": 100,
-            "show_logo_overlay": false,
-            "logo_image": "shopify://shop_images/Tanken-TheStandingDesk-white-bigger-subtitle.png",
-            "logo_position": "center",
-            "logo_width_desktop": 50,
-            "logo_width_mobile": 300,
-            "logo_offset": 75,
-            "logo_opacity": 1
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_c83cc1b_yRqtPg"
-      ],
-      "settings": {}
     },
     "rich_text_PpbKFc": {
       "type": "rich-text",
@@ -398,8 +380,7 @@
     }
   },
   "order": [
-    "rich-text",
-    "1771422073e58f1fbc",
+    "hero_banner",
     "rich_text_PpbKFc",
     "blocks_iQfUPx",
     "featured-product",

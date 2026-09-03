@@ -98,6 +98,24 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- if request.page_type == 'index' -%}
+    /* Homepage only: float a transparent header over the hero image so the photo spills up behind the bar */
+    .template-index .section-header.shopify-section-group-header-group {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .template-index .header-wrapper {
+      background: transparent !important;
+    }
+
+    .template-index .header-wrapper.shopify-section-header-sticky {
+      background: rgb(var(--color-background)) !important;
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
