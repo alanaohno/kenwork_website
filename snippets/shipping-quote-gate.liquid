@@ -37,6 +37,21 @@
     display: block;
     margin-top: 1.5rem;
   }
+
+  .shipping-quote-gate .form-status {
+    margin: 1.5rem 0 2rem;
+  }
+
+  .shipping-quote-gate__sent {
+    display: inline-block;
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    padding: 1rem 2rem;
+    border-radius: var(--inputs-radius);
+    margin: 1.5rem 0 2rem;
+  }
 </style>
 
 <script>
@@ -108,25 +123,13 @@
 
     {%- form 'contact', id: 'HabachyForm', class: 'isolate' -%}
       {%- if form.posted_successfully? -%}
-        <p class="form-status form__message">{{ 'templates.contact.form.post_success' | t }}</p>
+        <p class="shipping-quote-gate__sent">Sent</p>
       {%- elsif form.errors -%}
         <p class="form-status form__message" role="alert">{{ 'templates.contact.form.error_heading' | t }}</p>
       {%- endif -%}
+      <input type="hidden" name="contact[Context]" value="Habachy exclusive region">
       <input type="hidden" name="contact[Country]" data-habachy-country>
       <input type="hidden" name="contact[Zip Code]" data-habachy-zip>
-      <div class="product-form__input">
-        <label class="form__label">{{ 'templates.contact.form.email' | t }}</label>
-        <div class="field">
-          <input
-            class="field__input"
-            type="email"
-            name="contact[email]"
-            autocomplete="email"
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-            required
-          >
-        </div>
-      </div>
       {%- if wood_option -%}
         <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
       {%- endif -%}
@@ -136,7 +139,34 @@
       {%- if leather_option -%}
         <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
       {%- endif -%}
-      <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      {%- unless form.posted_successfully? -%}
+        <div class="product-form__input">
+          <label class="form__label">{{ 'templates.contact.form.name' | t }} (optional)</label>
+          <div class="field">
+            <input
+              class="field__input"
+              type="text"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              autocomplete="name"
+              placeholder="{{ 'templates.contact.form.name' | t }}"
+            >
+          </div>
+        </div>
+        <div class="product-form__input">
+          <label class="form__label">{{ 'templates.contact.form.email' | t }}</label>
+          <div class="field">
+            <input
+              class="field__input"
+              type="email"
+              name="contact[email]"
+              autocomplete="email"
+              placeholder="{{ 'templates.contact.form.email' | t }}"
+              required
+            >
+          </div>
+        </div>
+        <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      {%- endunless -%}
       <button type="button" class="shipping-quote-gate__back link underlined-link" data-shipping-quote-back>
         &larr; Back
       </button>
@@ -184,24 +214,12 @@
 
     {%- form 'contact', id: 'NoShippingForm', class: 'isolate' -%}
       {%- if form.posted_successfully? -%}
-        <p class="form-status form__message">{{ 'templates.contact.form.post_success' | t }}</p>
+        <p class="shipping-quote-gate__sent">Sent</p>
       {%- elsif form.errors -%}
         <p class="form-status form__message" role="alert">{{ 'templates.contact.form.error_heading' | t }}</p>
       {%- endif -%}
+      <input type="hidden" name="contact[Context]" value="Missing shipping information">
       <input type="hidden" name="contact[Country]" data-noship-country>
-      <div class="product-form__input">
-        <label class="form__label">{{ 'templates.contact.form.email' | t }}</label>
-        <div class="field">
-          <input
-            class="field__input"
-            type="email"
-            name="contact[email]"
-            autocomplete="email"
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-            required
-          >
-        </div>
-      </div>
       {%- if wood_option -%}
         <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
       {%- endif -%}
@@ -211,7 +229,34 @@
       {%- if leather_option -%}
         <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
       {%- endif -%}
-      <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      {%- unless form.posted_successfully? -%}
+        <div class="product-form__input">
+          <label class="form__label">{{ 'templates.contact.form.name' | t }} (optional)</label>
+          <div class="field">
+            <input
+              class="field__input"
+              type="text"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              autocomplete="name"
+              placeholder="{{ 'templates.contact.form.name' | t }}"
+            >
+          </div>
+        </div>
+        <div class="product-form__input">
+          <label class="form__label">{{ 'templates.contact.form.email' | t }}</label>
+          <div class="field">
+            <input
+              class="field__input"
+              type="email"
+              name="contact[email]"
+              autocomplete="email"
+              placeholder="{{ 'templates.contact.form.email' | t }}"
+              required
+            >
+          </div>
+        </div>
+        <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      {%- endunless -%}
       <button type="button" class="shipping-quote-gate__back link underlined-link" data-shipping-quote-back>
         &larr; Back
       </button>

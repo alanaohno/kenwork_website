@@ -1,3 +1,10 @@
+// Set to false to temporarily disable syncing country selection here to the
+// site's real localization/currency (useful in local dev, where the
+// /localization route Shopify's form posts to isn't reachable and makes the
+// resulting reload/redirect confusing to debug). Flip back to true to
+// restore the real cross-site currency sync.
+window.habachyEnableLocalizationSync = false;
+
 if (!customElements.get('shipping-quote-gate')) {
   customElements.define(
     'shipping-quote-gate',
@@ -28,6 +35,14 @@ if (!customElements.get('shipping-quote-gate')) {
         this.submitButton.addEventListener('click', this.handleSubmit.bind(this));
         this.backButtons.forEach((button) => {
           button.addEventListener('click', () => this.showGate());
+        });
+
+        // Submitting HabachyForm/NoShippingForm is a real full-page POST —
+        // save scroll position first so the reload can land back in the
+        // same spot instead of jumping to wherever the browser's default
+        // anchor-scroll behavior would otherwise put it.
+        this.querySelectorAll('form').forEach((form) => {
+          form.addEventListener('submit', () => this.saveScrollPosition());
         });
 
         // Browsers restore <select>/<input> values on back-navigation and
@@ -64,6 +79,34 @@ if (!customElements.get('shipping-quote-gate')) {
         if (saved) this.applyLockedDisplay(saved.country, saved.zip);
 
         this.showPanel(submittedPanel.dataset.panel);
+        this.restoreScrollPosition();
+      }
+
+      saveScrollPosition() {
+        try {
+          sessionStorage.setItem('shippingQuoteGateScrollY', String(window.scrollY));
+        } catch (error) {
+          // sessionStorage unavailable — non-fatal, worst case the browser's
+          // own default scroll position applies after reload.
+        }
+      }
+
+      restoreScrollPosition() {
+        let savedScrollY;
+        try {
+          savedScrollY = sessionStorage.getItem('shippingQuoteGateScrollY');
+          sessionStorage.removeItem('shippingQuoteGateScrollY');
+        } catch (error) {
+          return;
+        }
+        if (savedScrollY === null) return;
+
+        const scrollToSaved = () => window.scrollTo(0, parseInt(savedScrollY, 10));
+        // Apply immediately, and again after full load — the browser's own
+        // fragment-scroll (from the form's #id anchor) can otherwise happen
+        // after this runs and override it.
+        scrollToSaved();
+        window.addEventListener('load', scrollToSaved, { once: true });
       }
 
       // Prefill the country dropdown with the site's already-detected country
@@ -84,6 +127,7 @@ if (!customElements.get('shipping-quote-gate')) {
       // everywhere else on the site switch to match — same mechanism as the
       // header's country selector, just triggered from here too.
       maybeSyncSiteLocalization() {
+        if (!window.habachyEnableLocalizationSync) return;
         if (!this.localizationForm || !this.localeCountryInput) return;
         const iso = (window.habachyCountryToIso || {})[this.countrySelect.value];
         if (!iso || iso === this.currentCountryIso) return;
