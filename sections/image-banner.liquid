@@ -53,6 +53,33 @@
   {%- endstyle -%}
 {%- endif -%}
 
+{%- if section.settings.enable_precise_position -%}
+  {%- style -%}
+    #Banner-{{ section.id }} .banner__content {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+
+    #Banner-{{ section.id }} .banner__box {
+      position: absolute;
+      left: {{ section.settings.content_position_x_mobile }}%;
+      top: {{ section.settings.content_position_y_mobile }}%;
+      transform: translate(-{{ section.settings.content_position_x_mobile }}%, -{{ section.settings.content_position_y_mobile }}%);
+      max-width: 90%;
+    }
+
+    @media screen and (min-width: 750px) {
+      #Banner-{{ section.id }} .banner__box {
+        left: {{ section.settings.content_position_x }}%;
+        top: {{ section.settings.content_position_y }}%;
+        transform: translate(-{{ section.settings.content_position_x }}%, -{{ section.settings.content_position_y }}%);
+        max-width: 60rem;
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
 {%- liquid
   assign full_width = '100vw'
   assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
@@ -365,6 +392,55 @@
       ],
       "default": "center",
       "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_precise_position",
+      "default": false,
+      "label": "Enable precise text position",
+      "info": "Overrides the Desktop/Mobile position above with exact percentage sliders below."
+    },
+    {
+      "type": "range",
+      "id": "content_position_x",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "Text position: horizontal (desktop)",
+      "info": "0 = left edge, 100 = right edge. Only applies when precise position is enabled."
+    },
+    {
+      "type": "range",
+      "id": "content_position_y",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "Text position: vertical (desktop)",
+      "info": "0 = top edge, 100 = bottom edge."
+    },
+    {
+      "type": "range",
+      "id": "content_position_x_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "Text position: horizontal (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "content_position_y_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "Text position: vertical (mobile)"
     },
     {
       "type": "checkbox",
