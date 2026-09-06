@@ -171,21 +171,49 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
+            {%- if block.settings.heading_font_size > 0 or block.settings.heading_font_size_mobile > 0 -%}
+              {%- style -%}
+                {%- if block.settings.heading_font_size_mobile > 0 -%}
+                  #Heading-{{ block.id }} {
+                    font-size: {{ block.settings.heading_font_size_mobile }}px;
+                  }
+                {%- endif -%}
+                {%- if block.settings.heading_font_size > 0 -%}
+                  @media screen and (min-width: 750px) {
+                    #Heading-{{ block.id }} {
+                      font-size: {{ block.settings.heading_font_size }}px;
+                    }
+                  }
+                {%- endif -%}
+              {%- endstyle -%}
+            {%- endif -%}
             <h2
+              id="Heading-{{ block.id }}"
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
-              {% if block.settings.heading_font_size > 0 %}
-                style="font-size: {{ block.settings.heading_font_size }}px;"
-              {% endif %}
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
+            {%- if block.settings.text_font_size > 0 or block.settings.text_font_size_mobile > 0 -%}
+              {%- style -%}
+                {%- if block.settings.text_font_size_mobile > 0 -%}
+                  #Text-{{ block.id }} {
+                    font-size: {{ block.settings.text_font_size_mobile }}px;
+                  }
+                {%- endif -%}
+                {%- if block.settings.text_font_size > 0 -%}
+                  @media screen and (min-width: 750px) {
+                    #Text-{{ block.id }} {
+                      font-size: {{ block.settings.text_font_size }}px;
+                    }
+                  }
+                {%- endif -%}
+              {%- endstyle -%}
+            {%- endif -%}
             <div
+              id="Text-{{ block.id }}"
               class="banner__text rte {{ block.settings.text_style }}"
-              {% if block.settings.text_font_size > 0 %}
-                style="font-size: {{ block.settings.text_font_size }}px;"
-              {% endif %}
               {{ block.shopify_attributes }}
             >
               <p>{{ block.settings.text }}</p>
@@ -539,7 +567,18 @@
           "step": 4,
           "unit": "px",
           "default": 0,
-          "label": "Custom font size override",
+          "label": "Custom font size override (desktop)",
+          "info": "0 = use the size preset above."
+        },
+        {
+          "type": "range",
+          "id": "heading_font_size_mobile",
+          "min": 0,
+          "max": 120,
+          "step": 2,
+          "unit": "px",
+          "default": 0,
+          "label": "Custom font size override (mobile)",
           "info": "0 = use the size preset above."
         }
       ]
@@ -583,7 +622,18 @@
           "step": 2,
           "unit": "px",
           "default": 0,
-          "label": "Custom font size override",
+          "label": "Custom font size override (desktop)",
+          "info": "0 = use the style preset above."
+        },
+        {
+          "type": "range",
+          "id": "text_font_size_mobile",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "default": 0,
+          "label": "Custom font size override (mobile)",
           "info": "0 = use the style preset above."
         }
       ]
