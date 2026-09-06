@@ -114,41 +114,43 @@
                     {%- endunless -%}
                   </h2>
                 {%- when 'price' -%}
-                  <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                    {%- render 'price',
-                      product: product,
-                      placeholder: placeholder,
-                      use_variant: true,
-                      show_badges: true,
-                      price_class: 'price--large'
-                    -%}
-                  </div>
-                  {%- if product.quantity_price_breaks_configured? -%}
-                    <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
-                      <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                  {%- unless product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' -%}
+                    <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                      {%- render 'price',
+                        product: product,
+                        placeholder: placeholder,
+                        use_variant: true,
+                        show_badges: true,
+                        price_class: 'price--large'
+                      -%}
                     </div>
-                  {%- endif -%}
-                  {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                    <div class="product__tax caption rte">
-                      {%- if cart.duties_included and cart.taxes_included -%}
-                        {{ 'products.product.duties_and_taxes_included' | t }}
-                      {%- elsif cart.taxes_included -%}
-                        {{ 'products.product.taxes_included' | t }}
-                      {%- elsif cart.duties_included -%}
-                        {{ 'products.product.duties_included' | t }}
-                      {%- endif -%}
-                      {%- if shop.shipping_policy.body != blank -%}
-                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                  {%- unless placeholder -%}
-                    <div {{ block.shopify_attributes }}>
-                      {%- form 'product', product -%}
-                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                        {{ form | payment_terms }}
-                      {%- endform -%}
-                    </div>
+                    {%- if product.quantity_price_breaks_configured? -%}
+                      <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
+                        <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                      </div>
+                    {%- endif -%}
+                    {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                      <div class="product__tax caption rte">
+                        {%- if cart.duties_included and cart.taxes_included -%}
+                          {{ 'products.product.duties_and_taxes_included' | t }}
+                        {%- elsif cart.taxes_included -%}
+                          {{ 'products.product.taxes_included' | t }}
+                        {%- elsif cart.duties_included -%}
+                          {{ 'products.product.duties_included' | t }}
+                        {%- endif -%}
+                        {%- if shop.shipping_policy.body != blank -%}
+                          {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                    {%- unless placeholder -%}
+                      <div {{ block.shopify_attributes }}>
+                        {%- form 'product', product -%}
+                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                          {{ form | payment_terms }}
+                        {%- endform -%}
+                      </div>
+                    {%- endunless -%}
                   {%- endunless -%}
                 {%- when 'sku' -%}
                   <p
@@ -400,12 +402,20 @@
                     product_form_id: product_form_id
                   %}
                 {%- when 'buy_buttons' -%}
-                  {%- render 'buy-buttons',
-                    block: block,
-                    product: product,
-                    product_form_id: product_form_id,
-                    section_id: section.id
-                  -%}
+                  {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' -%}
+                    {%- render 'shipping-quote-gate',
+                      product: product,
+                      block: block,
+                      product_form_id: product_form_id
+                    -%}
+                  {%- else -%}
+                    {%- render 'buy-buttons',
+                      block: block,
+                      product: product,
+                      product_form_id: product_form_id,
+                      section_id: section.id
+                    -%}
+                  {%- endif -%}
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
                 {%- when 'rating' -%}
