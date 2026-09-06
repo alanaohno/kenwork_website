@@ -1,0 +1,213 @@
+{% comment %}
+  Renders the shipping-destination gate for the TANKEN standing desk.
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} the buy_buttons block (used for the real purchase panel).
+  - product_form_id: {String} product form id (used for the real purchase panel).
+
+  Usage:
+  {% render 'shipping-quote-gate', product: product, block: block, product_form_id: product_form_id %}
+{% endcomment %}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign wood_option = product.options_with_values | where: 'name', 'Wood Species' | first
+  assign height_option = product.options_with_values | where: 'name', 'Height' | first
+  assign leather_option = product.options_with_values | where: 'name', 'Leather Cover' | first
+-%}
+
+<style>
+  .shipping-quote-gate__locked-field {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  }
+
+  .shipping-quote-gate__locked-label {
+    color: rgba(var(--color-foreground), 0.7);
+  }
+
+  .shipping-quote-gate__locked-value {
+    font-weight: 600;
+  }
+
+  .shipping-quote-gate__back {
+    display: block;
+    margin-top: 1.5rem;
+  }
+</style>
+
+<script>
+  window.habachyAvailableCountries = {{ localization.available_countries | map: 'name' | json }};
+</script>
+
+<shipping-quote-gate
+  class="shipping-quote-gate"
+  data-wood-species="{{ wood_option.selected_value | escape }}"
+>
+  <div class="shipping-quote-gate__panel" data-panel="gate">
+    <div class="product-form__input">
+      <label class="form__label">Country</label>
+      <div class="select">
+        <select class="select__select" data-country-select required>
+          <option value="">Select a country</option>
+          {{ all_country_option_tags }}
+        </select>
+        <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+      </div>
+    </div>
+
+    <div class="product-form__input" data-zip-wrapper hidden>
+      <label class="form__label">ZIP code</label>
+      <div class="field">
+        <input
+          class="field__input"
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]{5}"
+          maxlength="5"
+          placeholder="ZIP code"
+          data-zip-input
+        >
+      </div>
+    </div>
+
+    <button type="button" class="product-form__submit button button--full-width" disabled data-shipping-quote-submit>
+      View Full Price + Shipping
+    </button>
+  </div>
+
+  <div class="shipping-quote-gate__panel" data-panel="habachy" hidden>
+    <div class="shipping-quote-gate__locked-field">
+      <span class="shipping-quote-gate__locked-label">Country</span>
+      <span class="shipping-quote-gate__locked-value" data-habachy-country-display>&mdash;</span>
+    </div>
+    <div class="shipping-quote-gate__locked-field">
+      <span class="shipping-quote-gate__locked-label">ZIP code</span>
+      <span class="shipping-quote-gate__locked-value" data-habachy-zip-display>&mdash;</span>
+    </div>
+
+    <div class="shipping-quote-gate__price-lines">
+      <p><strong>Price:</strong> <span data-habachy-price>&mdash;</span></p>
+      <p><strong>Shipping:</strong> <span data-habachy-shipping>&mdash;</span></p>
+    </div>
+    <p>We are represented by Habachy Designs in your region. For further assistance, please fill out the form below and Habachy will be reaching out to you with details shortly.</p>
+
+    {%- form 'contact', id: 'HabachyForm', class: 'isolate' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="form-status form__message">{{ 'templates.contact.form.post_success' | t }}</p>
+      {%- elsif form.errors -%}
+        <p class="form-status form__message" role="alert">{{ 'templates.contact.form.error_heading' | t }}</p>
+      {%- endif -%}
+      <input type="hidden" name="contact[Country]" data-habachy-country>
+      <input type="hidden" name="contact[Zip Code]" data-habachy-zip>
+      <div class="product-form__input">
+        <label class="form__label">{{ 'templates.contact.form.email' | t }}</label>
+        <div class="field">
+          <input
+            class="field__input"
+            type="email"
+            name="contact[email]"
+            autocomplete="email"
+            placeholder="{{ 'templates.contact.form.email' | t }}"
+            required
+          >
+        </div>
+      </div>
+      {%- if wood_option -%}
+        <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
+      {%- endif -%}
+      {%- if height_option -%}
+        <input type="hidden" name="contact[Height]" value="{{ height_option.selected_value }}">
+      {%- endif -%}
+      {%- if leather_option -%}
+        <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
+      {%- endif -%}
+      <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      <button type="button" class="shipping-quote-gate__back link underlined-link" data-shipping-quote-back>
+        &larr; Back
+      </button>
+    {%- endform -%}
+  </div>
+
+  <div class="shipping-quote-gate__panel" data-panel="purchase" hidden>
+    <div id="price-{{ section.id }}" role="status">
+      {%- render 'price',
+        product: product,
+        placeholder: false,
+        use_variant: true,
+        show_badges: true,
+        price_class: 'price--large'
+      -%}
+    </div>
+    {%- render 'buy-buttons',
+      block: block,
+      product: product,
+      product_form_id: product_form_id,
+      section_id: section.id,
+      show_pickup_availability: true
+    -%}
+    <button type="button" class="shipping-quote-gate__back link underlined-link" data-shipping-quote-back>
+      &larr; Back
+    </button>
+  </div>
+
+  <div class="shipping-quote-gate__panel" data-panel="no-shipping" hidden>
+    <div class="shipping-quote-gate__locked-field">
+      <span class="shipping-quote-gate__locked-label">Country</span>
+      <span class="shipping-quote-gate__locked-value" data-noship-country-display>&mdash;</span>
+    </div>
+
+    <div id="price-noship-{{ section.id }}" role="status">
+      {%- render 'price',
+        product: product,
+        placeholder: false,
+        use_variant: true,
+        show_badges: true,
+        price_class: 'price--large'
+      -%}
+    </div>
+    <p>We have not previously calculated shipping for this country before. Please submit your email so that we can get the price to you directly.</p>
+
+    {%- form 'contact', id: 'NoShippingForm', class: 'isolate' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="form-status form__message">{{ 'templates.contact.form.post_success' | t }}</p>
+      {%- elsif form.errors -%}
+        <p class="form-status form__message" role="alert">{{ 'templates.contact.form.error_heading' | t }}</p>
+      {%- endif -%}
+      <input type="hidden" name="contact[Country]" data-noship-country>
+      <div class="product-form__input">
+        <label class="form__label">{{ 'templates.contact.form.email' | t }}</label>
+        <div class="field">
+          <input
+            class="field__input"
+            type="email"
+            name="contact[email]"
+            autocomplete="email"
+            placeholder="{{ 'templates.contact.form.email' | t }}"
+            required
+          >
+        </div>
+      </div>
+      {%- if wood_option -%}
+        <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
+      {%- endif -%}
+      {%- if height_option -%}
+        <input type="hidden" name="contact[Height]" value="{{ height_option.selected_value }}">
+      {%- endif -%}
+      {%- if leather_option -%}
+        <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
+      {%- endif -%}
+      <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      <button type="button" class="shipping-quote-gate__back link underlined-link" data-shipping-quote-back>
+        &larr; Back
+      </button>
+    {%- endform -%}
+  </div>
+</shipping-quote-gate>
+
+<script src="{{ 'habachy-exclusive-zipcodes.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'habachy-pricing.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'shipping-quote-gate.js' | asset_url }}" defer="defer"></script>
