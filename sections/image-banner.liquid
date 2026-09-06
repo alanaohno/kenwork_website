@@ -56,9 +56,7 @@
 {%- if section.settings.enable_precise_position -%}
   {%- style -%}
     #Banner-{{ section.id }} .banner__content {
-      position: absolute;
-      inset: 0;
-      display: block;
+      position: relative;
     }
 
     #Banner-{{ section.id }} .banner__box {
@@ -166,6 +164,7 @@
       }}
     </div>
   {%- endif -%}
+  {%- if section.blocks.size > 0 -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
@@ -252,6 +251,7 @@
       {%- endfor -%}
     </div>
   </div>
+  {%- endif -%}
 </div>
 
 {% schema %}
