@@ -10,11 +10,18 @@ if (!customElements.get('shipping-quote-gate')) {
         this.panels = Array.from(this.querySelectorAll('[data-panel]'));
         this.backButtons = Array.from(this.querySelectorAll('[data-shipping-quote-back]'));
         this.woodSpecies = this.dataset.woodSpecies;
+        this.detectedCountry = this.dataset.detectedCountry;
+        this.currentCountryIso = this.dataset.currentCountryIso;
+        this.localizationForm = this.querySelector('#ShippingQuoteLocalizationForm');
+        this.localeCountryInput = this.querySelector('[data-locale-country-input]');
         this.zipToState = null;
+
+        this.prefillDetectedCountry();
 
         this.countrySelect.addEventListener('change', () => {
           this.handleCountryChange();
           this.validate();
+          this.maybeSyncSiteLocalization();
         });
 
         this.zipInput.addEventListener('input', this.validate.bind(this));
@@ -57,6 +64,31 @@ if (!customElements.get('shipping-quote-gate')) {
         if (saved) this.applyLockedDisplay(saved.country, saved.zip);
 
         this.showPanel(submittedPanel.dataset.panel);
+      }
+
+      // Prefill the country dropdown with the site's already-detected country
+      // (`localization.country`), same as the header's own country selector
+      // shows. Set explicitly rather than relying on option pre-selection,
+      // so this is correct regardless of markup quirks.
+      prefillDetectedCountry() {
+        if (!this.detectedCountry) return;
+        const hasOption = Array.from(this.countrySelect.options).some(
+          (option) => option.value === this.detectedCountry
+        );
+        if (hasOption) this.countrySelect.value = this.detectedCountry;
+      }
+
+      // If the shopper picks a different country than the site's currently
+      // active one, and Shopify has a market/currency configured for it,
+      // submit the site's real localization form so currency and prices
+      // everywhere else on the site switch to match — same mechanism as the
+      // header's country selector, just triggered from here too.
+      maybeSyncSiteLocalization() {
+        if (!this.localizationForm || !this.localeCountryInput) return;
+        const iso = (window.habachyCountryToIso || {})[this.countrySelect.value];
+        if (!iso || iso === this.currentCountryIso) return;
+        this.localeCountryInput.value = iso;
+        this.localizationForm.submit();
       }
 
       isUS() {

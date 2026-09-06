@@ -41,12 +41,23 @@
 
 <script>
   window.habachyAvailableCountries = {{ localization.available_countries | map: 'name' | json }};
+  window.habachyCountryToIso = {
+    {%- for country in localization.available_countries -%}
+      {{ country.name | json }}: {{ country.iso_code | json }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  };
 </script>
 
 <shipping-quote-gate
   class="shipping-quote-gate"
   data-wood-species="{{ wood_option.selected_value | escape }}"
+  data-detected-country="{{ localization.country.name | escape }}"
+  data-current-country-iso="{{ localization.country.iso_code }}"
 >
+  {%- form 'localization', id: 'ShippingQuoteLocalizationForm' -%}
+    <input type="hidden" name="country_code" data-locale-country-input value="{{ localization.country.iso_code }}">
+  {%- endform -%}
+
   <div class="shipping-quote-gate__panel" data-panel="gate">
     <div class="product-form__input">
       <label class="form__label">Country</label>
