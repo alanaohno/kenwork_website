@@ -22,7 +22,7 @@
 
   assign active_country = localization.country.name
   assign is_us = false
-  if active_country == 'United States'
+  if localization.country.iso_code == 'US'
     assign is_us = true
   endif
 
@@ -181,7 +181,6 @@
   </shipping-quote-gate>
 
   <script src="{{ 'habachy-exclusive-zipcodes.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'us-pricing.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'shipping-quote-gate.js' | asset_url }}" defer="defer"></script>
 
 {%- elsif country_supported -%}
