@@ -71,7 +71,7 @@ if (!customElements.get('shipping-quote-gate')) {
       // echo custom form fields back after a real page reload).
       showPanelAfterFormSubmission() {
         const submittedPanel = this.panels.find(
-          (panel) => panel.dataset.panel !== 'gate' && panel.querySelector('.form-status')
+          (panel) => panel.dataset.panel !== 'gate' && panel.querySelector('.form-status, .shipping-quote-gate__sent')
         );
         if (!submittedPanel) return;
 
