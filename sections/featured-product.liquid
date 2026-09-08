@@ -114,7 +114,25 @@
                     {%- endunless -%}
                   </h2>
                 {%- when 'price' -%}
-                  {%- unless product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' -%}
+                  {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' and localization.country.name == 'United States' -%}
+                    {%- assign tanken_wood_option = product.options_with_values | where: 'name', 'Wood Species' | first -%}
+                    <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                      <div class="price price--large">
+                        <div class="price__container">
+                          <div class="price__regular">
+                            <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                            <span
+                              class="price-item price-item--regular"
+                              data-tanken-us-price
+                              data-wood-species="{{ tanken_wood_option.selected_value | escape }}"
+                            >&mdash;</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <script src="{{ 'us-pricing.js' | asset_url }}" defer="defer"></script>
+                    <script src="{{ 'tanken-us-price.js' | asset_url }}" defer="defer"></script>
+                  {%- else -%}
                     <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                       {%- render 'price',
                         product: product,
@@ -151,7 +169,7 @@
                         {%- endform -%}
                       </div>
                     {%- endunless -%}
-                  {%- endunless -%}
+                  {%- endif -%}
                 {%- when 'sku' -%}
                   <p
                     class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"

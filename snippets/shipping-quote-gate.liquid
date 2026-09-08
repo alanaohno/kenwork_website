@@ -107,10 +107,6 @@
         <span class="shipping-quote-gate__locked-value" data-habachy-zip-display>&mdash;</span>
       </div>
 
-      <div class="shipping-quote-gate__price-lines">
-        <p><strong>Price:</strong> <span data-habachy-price>&mdash;</span></p>
-        <p><strong>Shipping to {{ active_country }}:</strong> <span data-habachy-shipping>&mdash;</span></p>
-      </div>
       <p>We are represented by Habachy Designs in your region. For further assistance, please provide your email and Habachy will be reaching out to you with details shortly.</p>
 
       {%- form 'contact', id: 'HabachyForm', class: 'isolate' -%}
@@ -171,10 +167,6 @@
         <span class="shipping-quote-gate__locked-value" data-us-zip-display>&mdash;</span>
       </div>
 
-      <div class="shipping-quote-gate__price-lines">
-        <p><strong>Price:</strong> <span data-us-price>&mdash;</span></p>
-        <p><strong>Shipping to {{ active_country }}:</strong> <span data-us-shipping>&mdash;</span></p>
-      </div>
       {%- render 'buy-buttons',
         block: block,
         product: product,
@@ -194,16 +186,6 @@
 
 {%- elsif country_supported -%}
   <div class="shipping-quote-gate">
-    <div id="price-{{ section.id }}" role="status">
-      {%- render 'price',
-        product: product,
-        placeholder: false,
-        use_variant: true,
-        show_badges: true,
-        price_class: 'price--large'
-      -%}
-    </div>
-    <p class="shipping-quote-gate__price-lines"><strong>Shipping to {{ active_country }}</strong></p>
     {%- render 'buy-buttons',
       block: block,
       product: product,

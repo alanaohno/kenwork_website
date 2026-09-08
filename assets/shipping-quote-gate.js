@@ -138,34 +138,17 @@ if (!customElements.get('shipping-quote-gate')) {
         }
       }
 
-      formatMoney(amount) {
-        return '$' + Number(amount).toFixed(2);
-      }
-
       handleSubmit() {
         if (this.submitButton.disabled) return;
 
         const zip = this.zipInput.value.trim();
-        // Same price is shown to every US shopper regardless of ZIP — only
-        // the action (contact form vs. real cart) differs.
-        const pricing = (window.usPricing || {})[this.woodSpecies];
 
         if (this.isExclusiveZip(zip)) {
           this.applyLockedZip(zip);
           this.persistLockedZip(zip);
-
-          if (pricing) {
-            this.setText('[data-habachy-price]', this.formatMoney(pricing.price));
-            this.setText('[data-habachy-shipping]', this.formatMoney(pricing.shipping));
-          }
-
           this.showPanel('habachy');
         } else {
           this.setText('[data-us-zip-display]', zip);
-          if (pricing) {
-            this.setText('[data-us-price]', this.formatMoney(pricing.price));
-            this.setText('[data-us-shipping]', this.formatMoney(pricing.shipping));
-          }
           this.showPanel('purchase');
         }
       }
