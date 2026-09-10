@@ -117,27 +117,23 @@
         <span class="shipping-quote-gate__locked-value" data-habachy-zip-display>&mdash;</span>
       </div>
 
-      <p>We are represented by Habachy Designs in your region. For further assistance, please provide your email and Habachy will be reaching out to you with details shortly.</p>
-
       {%- form 'contact', id: 'HabachyForm', class: 'isolate' -%}
-        {%- if form.posted_successfully? -%}
-          <p class="shipping-quote-gate__sent">Sent</p>
-        {%- elsif form.errors -%}
-          <p class="form-status form__message" role="alert">{{ 'templates.contact.form.error_heading' | t }}</p>
-        {%- endif -%}
-        <input type="hidden" name="contact[Context]" value="Habachy exclusive region">
-        <input type="hidden" name="contact[Country]" value="{{ active_country }}">
-        <input type="hidden" name="contact[Zip Code]" data-habachy-zip>
-        {%- if wood_option -%}
-          <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
-        {%- endif -%}
-        {%- if height_option -%}
-          <input type="hidden" name="contact[Height]" value="{{ height_option.selected_value }}">
-        {%- endif -%}
-        {%- if leather_option -%}
-          <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
-        {%- endif -%}
-        {%- unless form.posted_successfully? -%}
+        <div data-habachy-sent{% unless form.posted_successfully? %} hidden{% endunless %}>
+          <p class="shipping-quote-gate__sent">Thank you. Habachy Designs will be reaching out to you at <span data-habachy-sent-email>{{ form.email }}</span> shortly.</p>
+        </div>
+        <div data-habachy-form-content{% if form.posted_successfully? %} hidden{% endif %}>
+          <p>We are represented by Habachy Designs in your region. For further assistance, please provide your email and Habachy will be reaching out to you with details shortly.</p>
+          {%- if form.errors -%}
+            <p class="form-status form__message" role="alert">{{ 'templates.contact.form.error_heading' | t }}</p>
+            <ul class="form-status-list caption-large" role="list">
+              {%- for field in form.errors -%}
+                <li>
+                  {{ form.errors.translated_fields[field] | capitalize }}
+                  {{ form.errors.messages[field] }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
           <div class="product-form__input">
             <label class="form__label">{{ 'templates.contact.form.name' | t }} (optional)</label>
             <div class="field">
@@ -164,7 +160,19 @@
             </div>
           </div>
           <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
-        {%- endunless -%}
+        </div>
+        <input type="hidden" name="contact[Context]" value="Habachy exclusive region">
+        <input type="hidden" name="contact[Country]" value="{{ active_country }}">
+        <input type="hidden" name="contact[Zip Code]" data-habachy-zip>
+        {%- if wood_option -%}
+          <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
+        {%- endif -%}
+        {%- if height_option -%}
+          <input type="hidden" name="contact[Height]" value="{{ height_option.selected_value }}">
+        {%- endif -%}
+        {%- if leather_option -%}
+          <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
+        {%- endif -%}
         <button type="button" class="shipping-quote-gate__back link underlined-link" data-shipping-quote-back>
           &larr; Back
         </button>
@@ -215,6 +223,14 @@
         <p class="shipping-quote-gate__sent">Sent</p>
       {%- elsif form.errors -%}
         <p class="form-status form__message" role="alert">{{ 'templates.contact.form.error_heading' | t }}</p>
+        <ul class="form-status-list caption-large" role="list">
+          {%- for field in form.errors -%}
+            <li>
+              {{ form.errors.translated_fields[field] | capitalize }}
+              {{ form.errors.messages[field] }}
+            </li>
+          {%- endfor -%}
+        </ul>
       {%- endif -%}
       <input type="hidden" name="contact[Context]" value="Missing shipping information">
       <input type="hidden" name="contact[Country]" value="{{ active_country }}">

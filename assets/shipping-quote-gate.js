@@ -19,9 +19,14 @@ if (!customElements.get('shipping-quote-gate')) {
         // Submitting HabachyForm is a real full-page POST — save scroll
         // position first so the reload can land back in the same spot
         // instead of jumping to wherever the browser's default
-        // anchor-scroll behavior would otherwise put it.
+        // anchor-scroll behavior would otherwise put it. Also save the typed
+        // email client-side: Shopify doesn't reliably echo it back via
+        // form.email on the post-redirect reload.
         this.querySelectorAll('form').forEach((form) => {
-          form.addEventListener('submit', () => this.saveScrollPosition());
+          form.addEventListener('submit', () => {
+            this.saveScrollPosition();
+            this.persistSubmittedEmail(form);
+          });
         });
 
         this.validate();
@@ -35,13 +40,41 @@ if (!customElements.get('shipping-quote-gate')) {
       // after a real page reload).
       showPanelAfterFormSubmission() {
         const habachyPanel = this.panels.find((panel) => panel.dataset.panel === 'habachy');
-        if (!habachyPanel || !habachyPanel.querySelector('.form-status, .shipping-quote-gate__sent')) return;
+        if (!habachyPanel) return;
+
+        const sent = habachyPanel.querySelector('[data-habachy-sent]');
+        const hasError = habachyPanel.querySelector('.form-status');
+        const wasJustSubmitted = (sent && !sent.hidden) || hasError;
+        if (!wasJustSubmitted) return;
 
         const savedZip = this.restoreLockedZip();
         if (savedZip) this.applyLockedZip(savedZip);
 
+        if (sent && !sent.hidden) {
+          const savedEmail = this.restoreSubmittedEmail();
+          if (savedEmail) this.setText('[data-habachy-sent-email]', savedEmail);
+        }
+
         this.showPanel('habachy');
         this.restoreScrollPosition();
+      }
+
+      persistSubmittedEmail(form) {
+        const emailInput = form.querySelector('input[type="email"]');
+        if (!emailInput) return;
+        try {
+          sessionStorage.setItem('shippingQuoteGateEmail', emailInput.value.trim());
+        } catch (error) {
+          // sessionStorage unavailable — non-fatal.
+        }
+      }
+
+      restoreSubmittedEmail() {
+        try {
+          return sessionStorage.getItem('shippingQuoteGateEmail');
+        } catch (error) {
+          return null;
+        }
       }
 
       saveScrollPosition() {
@@ -86,7 +119,21 @@ if (!customElements.get('shipping-quote-gate')) {
 
       showGate() {
         this.showPanel('gate');
+        this.resetHabachyForm();
         this.validate();
+      }
+
+      // form.posted_successfully? is baked into the page's one server render
+      // after a real reload — it can't turn back into "not yet submitted"
+      // without another reload. So a "Sent" confirmation from an earlier
+      // attempt would otherwise keep showing every time the shopper comes
+      // back through the gate with a new ZIP. Reset the panel back to its
+      // editable state client-side instead.
+      resetHabachyForm() {
+        const sent = this.querySelector('[data-habachy-sent]');
+        const formContent = this.querySelector('[data-habachy-form-content]');
+        if (sent) sent.hidden = true;
+        if (formContent) formContent.hidden = false;
       }
 
       buildZipToStateLookup() {
