@@ -73,6 +73,16 @@
   .shipping-quote-gate__price-lines p {
     margin: 0 0 0.5rem;
   }
+
+  /* This widget's field labels sit outside the input (not Dawn's
+     floating-label pattern), so inputs don't need room to make way for one —
+     keep padding symmetric instead of the shifted padding .field__input
+     normally applies once text is typed. */
+  .shipping-quote-gate .field__input,
+  .shipping-quote-gate .field__input:focus,
+  .shipping-quote-gate .field__input:not(:placeholder-shown) {
+    padding: 1.5rem;
+  }
 </style>
 
 {%- if is_us -%}
@@ -97,7 +107,7 @@
       </div>
 
       <button type="button" class="product-form__submit button button--full-width" disabled data-shipping-quote-submit>
-        View Full Price + Shipping
+        Continue
       </button>
     </div>
 
