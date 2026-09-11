@@ -209,14 +209,23 @@
       {%- comment -%}
         US price for the non-exclusive purchase path — Shopify Markets
         already returns the correct US-market price here via render 'price',
-        identical to what Add to Cart will actually charge.
+        identical to what Add to Cart will actually charge. Wrapped in the
+        same id="price-{{ section.id }}" pattern the stock product-info.js
+        variant-change handler looks for (see updateSourceFromDestination in
+        assets/product-info.js) — without it, this price is invisible to
+        that refresh mechanism and never updates when the shopper changes
+        Wood Species. Safe to reuse here since the top-of-page price block
+        renders nothing at all for Tanken+US (hide_tanken_price), so there's
+        no id collision.
       {%- endcomment -%}
-      {%- render 'price',
-        product: product,
-        use_variant: true,
-        show_badges: true,
-        price_class: 'price--large'
-      -%}
+      <div id="price-{{ section.id }}" role="status">
+        {%- render 'price',
+          product: product,
+          use_variant: true,
+          show_badges: true,
+          price_class: 'price--large'
+        -%}
+      </div>
 
       {%- render 'buy-buttons',
         block: block,
