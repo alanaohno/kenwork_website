@@ -107,7 +107,7 @@
                 </div>
               {%- when 'price' -%}
                 {%- assign hide_tanken_price = false -%}
-                {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' and localization.country.iso_code == 'US' -%}
+                {%- if product.handle == 'tanken-the-standing-desk' and localization.country.iso_code == 'US' -%}
                   {%- comment -%}
                     Price stays hidden for US until ZIP code entry — shown in
                     the shipping-quote-gate widget's purchase panel instead
@@ -491,11 +491,11 @@
 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-                {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' -%}
+                {%- if product.handle == 'tanken-the-standing-desk' -%}
                   {%- render 'tanken-height-property', product_form_id: product_form_id, section_id: section.id -%}
                 {%- endif -%}
               {%- when 'buy_buttons' -%}
-                {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' -%}
+                {%- if product.handle == 'tanken-the-standing-desk' -%}
                   {%- render 'shipping-quote-gate',
                     product: product,
                     block: block,
