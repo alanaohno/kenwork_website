@@ -17,7 +17,6 @@
 
 {%- liquid
   assign wood_option = product.options_with_values | where: 'name', 'Wood Species' | first
-  assign height_option = product.options_with_values | where: 'name', 'Height' | first
   assign leather_option = product.options_with_values | where: 'name', 'Leather Cover' | first
 
   assign active_country = localization.country.name
@@ -167,9 +166,13 @@
         {%- if wood_option -%}
           <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
         {%- endif -%}
-        {%- if height_option -%}
-          <input type="hidden" name="contact[Height]" value="{{ height_option.selected_value }}">
-        {%- endif -%}
+        {%- comment -%}
+          Height is a cart line-item property (properties[Height]), not a
+          real product option, so there's no server-side selected_value to
+          read here — JS fills this in from the Height selector at submit
+          time instead.
+        {%- endcomment -%}
+        <input type="hidden" name="contact[Height]" data-tanken-height>
         {%- if leather_option -%}
           <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
         {%- endif -%}
@@ -184,6 +187,18 @@
         <span class="shipping-quote-gate__locked-label">ZIP code</span>
         <span class="shipping-quote-gate__locked-value" data-us-zip-display>&mdash;</span>
       </div>
+
+      {%- comment -%}
+        US price for the non-exclusive purchase path — Shopify Markets
+        already returns the correct US-market price here via render 'price',
+        identical to what Add to Cart will actually charge.
+      {%- endcomment -%}
+      {%- render 'price',
+        product: product,
+        use_variant: true,
+        show_badges: true,
+        price_class: 'price--large'
+      -%}
 
       {%- render 'buy-buttons',
         block: block,
@@ -237,9 +252,13 @@
       {%- if wood_option -%}
         <input type="hidden" name="contact[Wood Species]" value="{{ wood_option.selected_value }}">
       {%- endif -%}
-      {%- if height_option -%}
-        <input type="hidden" name="contact[Height]" value="{{ height_option.selected_value }}">
-      {%- endif -%}
+      {%- comment -%}
+        Height is a cart line-item property (properties[Height]), not a real
+        product option, so there's no server-side selected_value to read
+        here — JS fills this in from the Height selector at submit time
+        instead.
+      {%- endcomment -%}
+      <input type="hidden" name="contact[Height]" data-tanken-height>
       {%- if leather_option -%}
         <input type="hidden" name="contact[Leather Cover]" value="{{ leather_option.selected_value }}">
       {%- endif -%}

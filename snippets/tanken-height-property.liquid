@@ -1,0 +1,78 @@
+{% comment %}
+  Renders a Height selector for the TANKEN standing desk as a cart line-item
+  property (properties[Height]) rather than a real Shopify variant option.
+  Height doesn't affect price or product photos — only Wood Species and
+  Leather Cover do (both real variant options) — so keeping it out of the
+  variant system avoids multiplying variant count for no reason.
+
+  Selecting "Custom Height" reveals a text field (properties[Custom Height])
+  for the shopper to request a specific height.
+
+  Accepts:
+  - product_form_id: {String} the add-to-cart form's id, so this radio group
+    submits with it despite living outside the <form> element (matches the
+    form="..." pattern already used by real variant option inputs).
+  - section_id: {String} unique id scope for input ids.
+
+  Usage:
+  {% render 'tanken-height-property', product_form_id: product_form_id, section_id: section.id %}
+{% endcomment %}
+{%- liquid
+  assign heights = 'Short (95 cm),Medium (105 cm),Tall (115 cm),Custom Height' | split: ','
+  assign default_height = heights.first
+-%}
+<style>
+  [data-tanken-custom-height-field] {
+    display: none;
+  }
+
+  [data-tanken-custom-height-radio]:checked ~ [data-tanken-custom-height-field] {
+    display: block;
+  }
+
+  /* This field's label sits outside the input (not Dawn's floating-label
+     pattern), so it doesn't need room to make way for one — keep padding
+     symmetric instead of the shifted padding .field__input normally applies
+     once text is typed. */
+  [data-tanken-custom-height-field] .field__input,
+  [data-tanken-custom-height-field] .field__input:focus,
+  [data-tanken-custom-height-field] .field__input:not(:placeholder-shown) {
+    padding: 1.5rem;
+  }
+</style>
+<fieldset class="js product-form__input product-form__input--pill">
+  <legend class="form__label">Height</legend>
+  {%- for height in heights -%}
+    {%- assign input_id = 'TankenHeight-' | append: section_id | append: '-' | append: forloop.index0 -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="properties[Height]"
+      value="{{ height | escape }}"
+      form="{{ product_form_id }}"
+      {% if height == default_height %}
+        checked
+      {% endif %}
+      {% if height == 'Custom Height' %}
+        data-tanken-custom-height-radio
+      {% endif %}
+    >
+    <label for="{{ input_id }}">
+      {{- height -}}
+    </label>
+  {%- endfor -%}
+  <div class="product-form__input" data-tanken-custom-height-field>
+    <label class="form__label" for="TankenCustomHeightValue-{{ section_id }}">Desired height</label>
+    <div class="field">
+      <input
+        class="field__input"
+        type="text"
+        id="TankenCustomHeightValue-{{ section_id }}"
+        name="properties[Custom Height]"
+        form="{{ product_form_id }}"
+        placeholder="e.g. 100 cm"
+      >
+    </div>
+  </div>
+</fieldset>
+<script src="{{ 'tanken-height-sync.js' | asset_url }}" defer="defer"></script>

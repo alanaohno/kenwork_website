@@ -106,33 +106,19 @@
                   </a>
                 </div>
               {%- when 'price' -%}
-                {%- assign tanken_us_price = nil -%}
+                {%- assign hide_tanken_price = false -%}
                 {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' and localization.country.iso_code == 'US' -%}
-                  {%- assign tanken_wood_option = product.options_with_values | where: 'name', 'Wood Species' | first -%}
-                  {%- assign tanken_us_pricing = product.metafields.custom.us_pricing.value -%}
-                  {%- if tanken_us_pricing -%}
-                    {%- assign tanken_us_price = tanken_us_pricing[tanken_wood_option.selected_value] -%}
-                  {%- endif -%}
-                {%- endif -%}
-                {%- if tanken_us_price -%}
                   {%- comment -%}
-                    US-specific price for TANKEN, sourced from the custom.us_pricing
-                    product metafield (set in Shopify admin, keyed by Wood Species) so
-                    it can be maintained without a theme deploy. Falls back to the real
-                    Shopify price above if the metafield is missing or has no entry for
-                    the selected Wood Species.
+                    Price stays hidden for US until ZIP code entry — shown in
+                    the shipping-quote-gate widget's purchase panel instead
+                    (non-exclusive states only; never shown for Habachy
+                    exclusive states). Everywhere else, the real Shopify
+                    price below is already correct per-market via Shopify
+                    Markets, so no override is needed.
                   {%- endcomment -%}
-                  <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                    <div class="price price--large">
-                      <div class="price__container">
-                        <div class="price__regular">
-                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-                          <span class="price-item price-item--regular">{{ tanken_us_price | times: 100 | money }}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                {%- else -%}
+                  {%- assign hide_tanken_price = true -%}
+                {%- endif -%}
+                {%- unless hide_tanken_price -%}
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
@@ -167,7 +153,7 @@
                       {{ form | payment_terms }}
                     {%- endform -%}
                   </div>
-                {%- endif -%}
+                {%- endunless -%}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -505,6 +491,9 @@
 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' -%}
+                  {%- render 'tanken-height-property', product_form_id: product_form_id, section_id: section.id -%}
+                {%- endif -%}
               {%- when 'buy_buttons' -%}
                 {%- if product.handle == 'tanken-the-standing-desk-kiso-hinoki-japanese-cypress' -%}
                   {%- render 'shipping-quote-gate',
