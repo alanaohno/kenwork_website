@@ -33,29 +33,27 @@ if (!customElements.get('shipping-quote-gate')) {
         this.showPanelAfterFormSubmission();
       }
 
-      // If the page just reloaded after a real contact-form submission,
-      // Shopify already rendered a success/error message in the Habachy
-      // panel — surface that panel (and restore the locked ZIP display from
-      // sessionStorage, since Shopify doesn't echo custom form fields back
-      // after a real page reload).
+      // If the page just reloaded after a real contact-form submission, an
+      // inline script rendered by Liquid (right inside the form block, where
+      // form.posted_successfully?/form.errors are actually reliable) has
+      // already revealed the Habachy panel synchronously, before this
+      // deferred script even runs. So a hidden panel here genuinely means
+      // nothing was just submitted — just restore the supporting state
+      // (locked ZIP display, submitted email, scroll position) for whichever
+      // panel is already showing.
       showPanelAfterFormSubmission() {
         const habachyPanel = this.panels.find((panel) => panel.dataset.panel === 'habachy');
-        if (!habachyPanel) return;
-
-        const sent = habachyPanel.querySelector('[data-habachy-sent]');
-        const hasError = habachyPanel.querySelector('.form-status');
-        const wasJustSubmitted = (sent && !sent.hidden) || hasError;
-        if (!wasJustSubmitted) return;
+        if (!habachyPanel || habachyPanel.hidden) return;
 
         const savedZip = this.restoreLockedZip();
         if (savedZip) this.applyLockedZip(savedZip);
 
+        const sent = habachyPanel.querySelector('[data-habachy-sent]');
         if (sent && !sent.hidden) {
           const savedEmail = this.restoreSubmittedEmail();
           if (savedEmail) this.setText('[data-habachy-sent-email]', savedEmail);
         }
 
-        this.showPanel('habachy');
         this.restoreScrollPosition();
       }
 

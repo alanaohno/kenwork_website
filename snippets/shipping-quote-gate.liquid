@@ -179,6 +179,24 @@
         <button type="button" class="shipping-quote-gate__back link underlined-link" data-shipping-quote-back>
           &larr; Back
         </button>
+        {%- if form.posted_successfully? or form.errors -%}
+          {%- comment -%}
+            form.posted_successfully?/form.errors are only reliable here,
+            inside the form block — reveal the panel directly and
+            synchronously from here rather than having JS try to re-detect
+            "was this just submitted" later by inspecting rendered content.
+          {%- endcomment -%}
+          <script>
+            (function () {
+              var panel = document.currentScript.closest('[data-panel="habachy"]');
+              var gate = panel && panel.parentElement;
+              if (!gate) return;
+              gate.querySelectorAll('[data-panel]').forEach(function (p) {
+                p.hidden = p !== panel;
+              });
+            })();
+          </script>
+        {%- endif -%}
       {%- endform -%}
     </div>
 
