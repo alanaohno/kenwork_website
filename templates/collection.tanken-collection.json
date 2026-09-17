@@ -491,26 +491,27 @@
         "show_text_below": true
       }
     },
-    "rich_text_byVDTT": {
+    "rich_text_xVLFer": {
       "type": "rich-text",
       "blocks": {
-        "heading_tH6LeQ": {
+        "heading_NnmFPe": {
           "type": "heading",
           "settings": {
             "heading": "一台で完結。",
             "heading_size": "h2"
           }
         },
-        "text_xKdALi": {
-          "type": "text",
+        "heading_dNd7wC": {
+          "type": "heading",
           "settings": {
-            "text": "<p>Fit to every working style.</p>"
+            "heading": "Fit to every working style.",
+            "heading_size": "h2"
           }
         }
       },
       "block_order": [
-        "heading_tH6LeQ",
-        "text_xKdALi"
+        "heading_NnmFPe",
+        "heading_dNd7wC"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -533,26 +534,27 @@
         "padding_bottom": 0
       }
     },
-    "rich_text_Uhdmie": {
+    "rich_text_iNNcpe": {
       "type": "rich-text",
       "blocks": {
-        "heading_FaAVCD": {
+        "heading_fDcmFX": {
           "type": "heading",
           "settings": {
             "heading": "極めてシンプル。",
             "heading_size": "h2"
           }
         },
-        "text_9DWVX6": {
-          "type": "text",
+        "heading_iQjjm3": {
+          "type": "heading",
           "settings": {
-            "text": "<p>Supremely simple.</p>"
+            "heading": "Supremely simple.",
+            "heading_size": "h2"
           }
         }
       },
       "block_order": [
-        "heading_FaAVCD",
-        "text_9DWVX6"
+        "heading_fDcmFX",
+        "heading_iQjjm3"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -588,26 +590,27 @@
         "show_text_below": true
       }
     },
-    "rich_text_iiHbEG": {
+    "rich_text_4fbYEj": {
       "type": "rich-text",
       "blocks": {
-        "heading_hdA6m7": {
+        "heading_JwDRRQ": {
           "type": "heading",
           "settings": {
             "heading": "5分で簡単組み立て。",
             "heading_size": "h2"
           }
         },
-        "text_fnfkJm": {
-          "type": "text",
+        "heading_aYdPaq": {
+          "type": "heading",
           "settings": {
-            "text": "<p>Build in 5 minutes by hand.</p>"
+            "heading": "Build in 5 minutes by hand.",
+            "heading_size": "h2"
           }
         }
       },
       "block_order": [
-        "heading_hdA6m7",
-        "text_fnfkJm"
+        "heading_JwDRRQ",
+        "heading_aYdPaq"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -672,11 +675,11 @@
     "image_banner_BqQCty",
     "rich_text_4P3E9q",
     "image_banner_tnyTbP",
-    "rich_text_byVDTT",
+    "rich_text_xVLFer",
     "image_cycle_gWmR3d",
-    "rich_text_Uhdmie",
+    "rich_text_iNNcpe",
     "image_banner_GKbwxP",
-    "rich_text_iiHbEG",
+    "rich_text_4fbYEj",
     "video_qVfHaY",
     "main-collection-product-grid"
   ]
