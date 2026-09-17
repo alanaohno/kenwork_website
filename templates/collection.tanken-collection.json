@@ -88,17 +88,6 @@
         "padding_bottom": 36
       }
     },
-    "image_cycle_gWmR3d": {
-      "type": "image-cycle",
-      "settings": {
-        "height": 600,
-        "width_percent": 60,
-        "enable_fade": true,
-        "seconds_per_image": 4,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "featured_collection_p8DMXm": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -110,7 +99,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "columns_desktop": 4,
+        "columns_desktop": 5,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
@@ -397,14 +386,14 @@
         "heading_UkX73T": {
           "type": "heading",
           "settings": {
-            "heading": "いらない充電器は隠す",
+            "heading": "いらない充電器は隠す。",
             "heading_size": "h2"
           }
         },
         "text_nGyWYw": {
           "type": "text",
           "settings": {
-            "text": "<p>hide the chargers you don't want to see</p>"
+            "text": "<p>Hide the chargers you don't want to see.</p>"
           }
         }
       },
@@ -452,14 +441,14 @@
         "heading_tH6LeQ": {
           "type": "heading",
           "settings": {
-            "heading": "一台で完結",
+            "heading": "一台で完結。",
             "heading_size": "h2"
           }
         },
         "text_xKdALi": {
           "type": "text",
           "settings": {
-            "text": "<p>fit to every working style</p>"
+            "text": "<p>Fit to every working style.</p>"
           }
         }
       },
@@ -477,17 +466,15 @@
         "padding_bottom": 52
       }
     },
-    "custom_liquid_TBqrf8": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".center {display: block; margin: 0 auto; max-width: 100%; height: auto;}"
-      ],
-      "name": "t:sections.custom-liquid.presets.name",
+    "image_cycle_gWmR3d": {
+      "type": "image-cycle",
       "settings": {
-        "custom_liquid": "<img src=\"https://cdn.shopify.com/s/files/1/0985/6601/3207/files/Desk_configurations_medium_1c14d904-bba9-43e9-9af1-04c311ef5226.gif?v=1770705939\" class=\"center\" />",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
+        "height": 600,
+        "width_percent": 60,
+        "enable_fade": false,
+        "seconds_per_image": 1.5,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "rich_text_Uhdmie": {
@@ -496,14 +483,14 @@
         "heading_FaAVCD": {
           "type": "heading",
           "settings": {
-            "heading": "極めてシンプル",
+            "heading": "極めてシンプル。",
             "heading_size": "h2"
           }
         },
         "text_9DWVX6": {
           "type": "text",
           "settings": {
-            "text": "<p>supremely simple</p>"
+            "text": "<p>Supremely simple.</p>"
           }
         }
       },
@@ -551,14 +538,14 @@
         "heading_hdA6m7": {
           "type": "heading",
           "settings": {
-            "heading": "5分で簡単組み立て",
+            "heading": "5分で簡単組み立て。",
             "heading_size": "h2"
           }
         },
         "text_fnfkJm": {
           "type": "text",
           "settings": {
-            "text": "<p>build in 5 minutes by hand</p>"
+            "text": "<p>Build in 5 minutes by hand.</p>"
           }
         }
       },
@@ -617,7 +604,6 @@
   "order": [
     "main-collection-banner",
     "featured_product_VrHaJD",
-    "image_cycle_gWmR3d",
     "featured_collection_p8DMXm",
     "rich_text_zdiRcn",
     "multicolumn_XPBbnK",
@@ -629,7 +615,7 @@
     "rich_text_4P3E9q",
     "image_banner_tnyTbP",
     "rich_text_byVDTT",
-    "custom_liquid_TBqrf8",
+    "image_cycle_gWmR3d",
     "rich_text_Uhdmie",
     "image_banner_GKbwxP",
     "rich_text_iiHbEG",
