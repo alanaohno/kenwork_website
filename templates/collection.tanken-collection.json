@@ -88,21 +88,55 @@
         "padding_bottom": 36
       }
     },
+    "featured_collection_p8DMXm": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "add-ons",
+        "products_to_show": 2,
+        "title": "Add-ons",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "rich_text_zdiRcn": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".patent-badge {text-align: center; max-width: 40rem; margin: 0 auto;}",
+        ".patent-badge__icon {width: 6rem; height: 6rem; margin: 0 auto 1.5rem; display: block;}",
+        ".patent-badge__heading {font-family: var(--font-heading-family); font-size: 2.4rem; margin: 0 0 1.2rem;}",
+        ".patent-badge__rule {width: 4rem; height: 0.1rem; background: currentColor; opacity: 0.4; margin: 0 auto 1.2rem;}",
+        ".patent-badge__numbers {font-size: 1.3rem; letter-spacing: 0.15rem; text-transform: uppercase; opacity: 0.75; margin: 0;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"patent-badge\"><svg class=\"patent-badge__icon\" viewBox=\"0 0 60 60\" aria-hidden=\"true\"><circle cx=\"30\" cy=\"30\" r=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"30\" cy=\"30\" r=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><polygon points=\"30,22 38,30 30,38 22,30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/></svg><h2 class=\"patent-badge__heading\">Design Patent Approved</h2><div class=\"patent-badge__rule\"></div><p class=\"patent-badge__numbers\">US Patent D966,013 S &middot; JP 意匠登録 1694750</p></div>",
+        "color_scheme": "scheme-5",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "multicolumn_XPBbnK": {
       "type": "multicolumn",
       "blocks": {
-        "column_4CNxx9": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/PHOTO-2026-08-24-13-27-17_2.jpg",
-            "reviewer": "Michael Cramer",
-            "stars": 5,
-            "title": "I couldn’t be happier with my standing desk from Kenwork.",
-            "review": "<p>I couldn’t be happier with my standing desk from Kenwork. The level of craftsmanship is exceptional and it’s apparent how every single detail was thought out.<br/><br/>Not only is it aesthetically beautiful, but setting up was so easy! The video instructions are easy to follow and the slots everything fit into made it so simple… and this is coming from someone who is notoriously bad at putting things together.<br/><br/>Last but not least, as someone who is actively trying to promote sustainable practices into my purchaes, understanding how each material was properly sources was a major driver in my decision to buy my standing desk.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
         "column_AyaFNx": {
           "type": "column",
           "settings": {
@@ -111,6 +145,18 @@
             "stars": 5,
             "title": "Ended up ordering three more desks for friends and family.",
             "review": "<p>I purchased this handcrafted standing desk for my boss; the quality exceeded our expectations. The craftsmanship is exceptional, with beautiful finishing and great attention to detail. The desk is solid, elegant, and clearly built to last.<br/><br/>My boss was so pleased with it that he ended up ordering three more desks for friends and family. That says more than any review could. Highly recommend KENWORK if you're looking for a premium, handcrafted piece of furniture. 😊</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_4CNxx9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/PHOTO-2026-08-24-13-27-17_2.jpg",
+            "reviewer": "Michael Cramer",
+            "stars": 5,
+            "title": "Understanding how each material was properly sources was a major driver in my decision to buy my standing desk.",
+            "review": "<p>I couldn’t be happier with my standing desk from Kenwork. The level of craftsmanship is exceptional and it’s apparent how every single detail was thought out.<br/><br/>Not only is it aesthetically beautiful, but setting up was so easy! The video instructions are easy to follow and the slots everything fit into made it so simple… and this is coming from someone who is notoriously bad at putting things together.<br/><br/>Last but not least, as someone who is actively trying to promote sustainable practices into my purchaes, understanding how each material was properly sources was a major driver in my decision to buy my standing desk.</p>",
             "link_label": "",
             "link": ""
           }
@@ -140,8 +186,8 @@
         }
       },
       "block_order": [
-        "column_4CNxx9",
         "column_AyaFNx",
+        "column_4CNxx9",
         "column_By6dYQ",
         "column_qxLxra"
       ],
@@ -161,52 +207,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "rich_text_zdiRcn": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".patent-badge {text-align: center; max-width: 40rem; margin: 0 auto;}",
-        ".patent-badge__icon {width: 6rem; height: 6rem; margin: 0 auto 1.5rem; display: block;}",
-        ".patent-badge__heading {font-family: var(--font-heading-family); font-size: 2.4rem; margin: 0 0 1.2rem;}",
-        ".patent-badge__rule {width: 4rem; height: 0.1rem; background: currentColor; opacity: 0.4; margin: 0 auto 1.2rem;}",
-        ".patent-badge__numbers {font-size: 1.3rem; letter-spacing: 0.15rem; text-transform: uppercase; opacity: 0.75; margin: 0;}"
-      ],
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<div class=\"patent-badge\"><svg class=\"patent-badge__icon\" viewBox=\"0 0 60 60\" aria-hidden=\"true\"><circle cx=\"30\" cy=\"30\" r=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"30\" cy=\"30\" r=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><polygon points=\"30,22 38,30 30,38 22,30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/></svg><h2 class=\"patent-badge__heading\">Design Patent Approved</h2><div class=\"patent-badge__rule\"></div><p class=\"patent-badge__numbers\">US Patent D966,013 S &middot; JP 意匠登録 1694750</p></div>",
-        "color_scheme": "scheme-5",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "featured_collection_p8DMXm": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "add-ons",
-        "products_to_show": 2,
-        "title": "Add-ons",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 2,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 24,
-        "padding_bottom": 24
       }
     },
     "blocks_pjfme9": {
@@ -607,8 +607,8 @@
     "main-collection-banner",
     "featured_product_VrHaJD",
     "featured_collection_p8DMXm",
-    "multicolumn_XPBbnK",
     "rich_text_zdiRcn",
+    "multicolumn_XPBbnK",
     "blocks_pjfme9",
     "image_banner_96wgFz",
     "featured_product_NkPgRx",
