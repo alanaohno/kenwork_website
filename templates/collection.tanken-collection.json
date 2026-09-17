@@ -380,6 +380,62 @@
         "show_text_below": true
       }
     },
+    "rich_text_tgadUQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wYmKhc": {
+          "type": "heading",
+          "settings": {
+            "heading": "国産の無垢木材、天然皮革。",
+            "heading_size": "h2"
+          }
+        },
+        "heading_TDrT9C": {
+          "type": "heading",
+          "settings": {
+            "heading": "Solid wood, full-grain leather sourced from Japan.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wYmKhc",
+        "heading_TDrT9C"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_BqQCty": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24671.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "rich_text_4P3E9q": {
       "type": "rich-text",
       "blocks": {
@@ -612,6 +668,8 @@
     "featured_product_NkPgRx",
     "rich_text_eY7MNr",
     "image_banner_tA3Yrp",
+    "rich_text_tgadUQ",
+    "image_banner_BqQCty",
     "rich_text_4P3E9q",
     "image_banner_tnyTbP",
     "rich_text_byVDTT",

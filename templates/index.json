@@ -145,6 +145,7 @@
       "block_order": [
         "ai_gen_block_c83cc1b_bEWBXA"
       ],
+      "disabled": true,
       "settings": {}
     },
     "featured-product": {
@@ -218,14 +219,14 @@
         "heading_nFaBzK": {
           "type": "heading",
           "settings": {
-            "heading": "邪魔なケーブルを隠せる機能美",
+            "heading": "邪魔なケーブルを隠せる機能美。",
             "heading_size": "h2"
           }
         },
         "heading_pq4UQm": {
           "type": "heading",
           "settings": {
-            "heading": "functional beauty with no visible cables",
+            "heading": "Functional beauty with no visible cables.",
             "heading_size": "h2"
           }
         }
@@ -274,14 +275,14 @@
         "heading_L8jWaD": {
           "type": "heading",
           "settings": {
-            "heading": "直感的な簡単組み立て",
+            "heading": "直感的な簡単組み立て。",
             "heading_size": "h2"
           }
         },
         "heading_TdUAWX": {
           "type": "heading",
           "settings": {
-            "heading": "intuitive, simple assembly",
+            "heading": "Intuitive, simple assembly.",
             "heading_size": "h2"
           }
         }
@@ -330,14 +331,14 @@
         "heading_89RND6": {
           "type": "heading",
           "settings": {
-            "heading": "国産の無垢木材、天然皮革",
+            "heading": "国産の無垢木材、天然皮革。",
             "heading_size": "h2"
           }
         },
         "heading_Gaa6zi": {
           "type": "heading",
           "settings": {
-            "heading": "solid wood, full-grain leather sourced from Japan",
+            "heading": "Solid wood, full-grain leather sourced from Japan.",
             "heading_size": "h2"
           }
         }
