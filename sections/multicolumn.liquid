@@ -16,6 +16,14 @@
     }
   }
 
+  .multicolumn-card .rating-star {
+    /* component-rating.css only defines these under .product/.card-wrapper —
+       without them, --percent's calc() falls apart and the star gradient
+       renders as fully transparent (invisible), not just unstyled. */
+    --letter-spacing: 0.7;
+    --font-size: 1.4;
+  }
+
   .multicolumn-card__review-title {
     font-weight: 600;
     margin: 0.5rem 0;
