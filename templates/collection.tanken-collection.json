@@ -88,6 +88,17 @@
         "padding_bottom": 36
       }
     },
+    "image_cycle_gWmR3d": {
+      "type": "image-cycle",
+      "settings": {
+        "height": 600,
+        "width_percent": 60,
+        "enable_fade": true,
+        "seconds_per_image": 4,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "featured_collection_p8DMXm": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -606,6 +617,7 @@
   "order": [
     "main-collection-banner",
     "featured_product_VrHaJD",
+    "image_cycle_gWmR3d",
     "featured_collection_p8DMXm",
     "rich_text_zdiRcn",
     "multicolumn_XPBbnK",

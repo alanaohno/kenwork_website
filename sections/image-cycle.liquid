@@ -1,0 +1,172 @@
+{% comment %}
+  Auto-cycling image slideshow with a CSS-only cross-fade (no JS). Images are
+  theme assets (assets/tanken-gallery-*.jpg) rather than Theme-Editor image
+  pickers, since image_picker settings require images already uploaded to
+  Shopify's Files library — swap images by replacing the asset files and the
+  image list below, not through the Theme Editor.
+{% endcomment %}
+{%- liquid
+  assign images = 'tanken-gallery-1.jpg,tanken-gallery-2.jpg,tanken-gallery-3.jpg,tanken-gallery-4.jpg,tanken-gallery-5.jpg,tanken-gallery-6.jpg,tanken-gallery-7.jpg,tanken-gallery-8.jpg' | split: ','
+  assign image_count = images.size
+  assign seconds_per_image = section.settings.seconds_per_image
+  assign total_duration = seconds_per_image | times: image_count
+  assign slot_percent = 100.0 | divided_by: image_count
+  if section.settings.enable_fade
+    assign fade_percent = slot_percent | times: 0.1
+  else
+    assign fade_percent = 0.01
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .image-cycle-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    height: {{ section.settings.height }}px;
+    width: {{ section.settings.width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .image-cycle-{{ section.id }} img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    animation-name: image-cycle-fade-{{ section.id }};
+    animation-duration: {{ total_duration }}s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  {%- for image_file in images -%}
+    .image-cycle-{{ section.id }} img:nth-child({{ forloop.index }}) {
+      animation-delay: {{ seconds_per_image | times: forloop.index0 }}s;
+    }
+  {%- endfor -%}
+
+  @keyframes image-cycle-fade-{{ section.id }} {
+    0% {
+      opacity: 0;
+    }
+    {{ fade_percent }}% {
+      opacity: 1;
+    }
+    {{ slot_percent | minus: fade_percent }}% {
+      opacity: 1;
+    }
+    {{ slot_percent }}% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .image-cycle-{{ section.id }} img {
+      animation: none;
+      opacity: 0;
+    }
+
+    .image-cycle-{{ section.id }} img:first-child {
+      opacity: 1;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="image-cycle-{{ section.id }}">
+    {%- for image_file in images -%}
+      <img
+        src="{{ image_file | asset_url }}"
+        alt=""
+        loading="lazy"
+        width="2400"
+        height="1600"
+      >
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image cycle",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "height",
+      "min": 200,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "default": 600,
+      "label": "Height"
+    },
+    {
+      "type": "range",
+      "id": "width_percent",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100,
+      "label": "Width"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_fade",
+      "default": true,
+      "label": "Fade between images",
+      "info": "Off switches to an instant cut instead of a cross-fade."
+    },
+    {
+      "type": "range",
+      "id": "seconds_per_image",
+      "min": 1,
+      "max": 10,
+      "step": 0.5,
+      "default": 4,
+      "label": "Seconds per image"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0,
+      "label": "Top padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0,
+      "label": "Bottom padding"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image cycle"
+    }
+  ]
+}
+{% endschema %}
