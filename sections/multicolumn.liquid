@@ -1,5 +1,7 @@
 {{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'review-text.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -12,6 +14,16 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+  }
+
+  .multicolumn-card__review-title {
+    font-weight: 600;
+    margin: 0.5rem 0;
+  }
+
+  .multicolumn-card__review-toggle {
+    display: block;
+    margin-top: 1rem;
   }
 {%- endstyle -%}
 
@@ -59,8 +71,9 @@
         {%- for block in section.blocks -%}
           {%- assign empty_column = '' -%}
           {%- if block.settings.image == blank
+            and block.settings.reviewer == blank
             and block.settings.title == blank
-            and block.settings.text == blank
+            and block.settings.review == blank
             and block.settings.link_label == blank
           -%}
             {%- assign empty_column = ' multicolumn-list__item--empty' -%}
@@ -120,10 +133,27 @@
               {%- endif -%}
               <div class="multicolumn-card__info">
                 {%- if block.settings.title != blank -%}
-                  <h3 class="inline-richtext">{{ block.settings.title }}</h3>
+                  <p class="multicolumn-card__review-title">&ldquo;{{ block.settings.title | escape }}&rdquo;</p>
                 {%- endif -%}
-                {%- if block.settings.text != blank -%}
-                  <div class="rte">{{ block.settings.text }}</div>
+                {%- if block.settings.reviewer != blank -%}
+                  <h3 class="inline-richtext">{{ block.settings.reviewer }}</h3>
+                {%- endif -%}
+                {%- if block.settings.stars > 0 -%}
+                  <span class="rating" role="img" aria-label="{{ block.settings.stars }} out of 5 stars">
+                    <span
+                      class="rating-star"
+                      style="--rating: {{ block.settings.stars }}; --rating-max: 5; --rating-decimal: 0;"
+                      aria-hidden="true"
+                    ></span>
+                  </span>
+                {%- endif -%}
+                {%- if block.settings.review != blank -%}
+                  <review-text>
+                    <div class="rte multicolumn-card__review-text" hidden>{{ block.settings.review }}</div>
+                    <button type="button" class="link underlined-link multicolumn-card__review-toggle">
+                      Read more
+                    </button>
+                  </review-text>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
@@ -410,16 +440,29 @@
           "label": "t:sections.multicolumn.blocks.column.settings.image.label"
         },
         {
-          "type": "inline_richtext",
-          "id": "title",
+          "type": "text",
+          "id": "reviewer",
           "default": "t:sections.multicolumn.blocks.column.settings.title.default",
-          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+          "label": "Reviewer name"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 0,
+          "label": "Rating (stars, 0 = hidden)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Quote (always visible, however long)"
         },
         {
           "type": "richtext",
-          "id": "text",
-          "default": "t:sections.multicolumn.blocks.column.settings.text.default",
-          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+          "id": "review",
+          "label": "Full review (hidden behind \"Read more\")"
         },
         {
           "type": "text",
