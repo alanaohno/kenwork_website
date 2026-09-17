@@ -15,15 +15,19 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "escape to work",
-            "heading_size": "h0"
+            "heading": "Office Furniture for your Living Room",
+            "heading_size": "h1",
+            "heading_font_size": 0,
+            "heading_font_size_mobile": 0
           }
         },
         "heading_cwqrYL": {
           "type": "text",
           "settings": {
-            "text": "没頭したくなる作業場",
-            "text_style": "subtitle"
+            "text": "リビングに置けるオフィス家具",
+            "text_style": "subtitle",
+            "text_font_size": 0,
+            "text_font_size_mobile": 0
           }
         }
       },
@@ -33,19 +37,21 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/240505_24830.webp",
+        "image": "shopify://shop_images/230221_2393.jpg",
         "image_overlay_opacity": 10,
-        "image_height": "large",
+        "image_height": "medium",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 480,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "enable_precise_position": true,
-        "content_position_x": 50,
-        "content_position_y": 50,
-        "content_position_x_mobile": 50,
-        "content_position_y_mobile": 50,
+        "content_position_x": 67,
+        "content_position_y": 26,
+        "content_position_x_mobile": 96,
+        "content_position_y_mobile": 22,
         "show_text_box": false,
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-hero-gold",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false
@@ -81,6 +87,40 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
+      }
+    },
+    "collection_list_LhkBYT": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_kCNxig": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tanken-the-standing-desk"
+          }
+        },
+        "featured_collection_QHkxTm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tomori-the-speaker-stand"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_kCNxig",
+        "featured_collection_QHkxTm"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "color_scheme": "scheme-2",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "blocks_iQfUPx": {
@@ -211,9 +251,16 @@
         "image": "shopify://shop_images/230221_2393.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
         "show_text_box": true,
         "color_scheme": "",
         "stack_images_on_mobile": true,
@@ -260,9 +307,16 @@
         "image": "shopify://shop_images/240505_24759_copy.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
         "show_text_box": true,
         "color_scheme": "",
         "stack_images_on_mobile": true,
@@ -309,9 +363,16 @@
         "image": "shopify://shop_images/240505_24796.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
         "show_text_box": true,
         "color_scheme": "",
         "stack_images_on_mobile": true,
@@ -387,6 +448,7 @@
   "order": [
     "hero_banner",
     "rich_text_PpbKFc",
+    "collection_list_LhkBYT",
     "blocks_iQfUPx",
     "featured-product",
     "rich_text_DnBiCA",

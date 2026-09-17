@@ -213,6 +213,17 @@
           "secondary_button_label": "#dfdfd8",
           "shadow": "#11151c"
         }
+      },
+      "scheme-hero-gold": {
+        "settings": {
+          "background": "#18351a",
+          "background_gradient": "",
+          "text": "#18351a",
+          "button": "#dfdfd8",
+          "button_label": "#18351a",
+          "secondary_button_label": "#18351a",
+          "shadow": "#11151c"
+        }
       }
     }
   },
