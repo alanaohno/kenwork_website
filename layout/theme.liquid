@@ -15,12 +15,21 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {%- comment -%}
+      Homepage fallback title: applies only while no homepage title is set in
+      Online Store → Preferences (page_title then equals the bare shop name).
+      Setting a real title in Preferences automatically takes over.
+    {%- endcomment -%}
+    {%- if request.page_type == 'index' and page_title == shop.name -%}
+      <title>KENWORK | Solid Wood Standing Desks Handcrafted in Tokyo</title>
+    {%- else -%}
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
+    {%- endif -%}
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">

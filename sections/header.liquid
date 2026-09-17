@@ -194,6 +194,7 @@
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
+        <span class="visually-hidden">Solid Wood Standing Desks Handcrafted in Tokyo, Japan</span>
         </h1>
       {%- endif -%}
     {%- endif -%}
@@ -237,6 +238,7 @@
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
+        <span class="visually-hidden">Solid Wood Standing Desks Handcrafted in Tokyo, Japan</span>
         </h1>
       {%- endif -%}
     {%- endif -%}
@@ -444,6 +446,10 @@
   customElements.define('sticky-header', StickyHeader);
 {% endjavascript %}
 
+{%- capture social_links -%}
+  {{- settings.social_instagram_link -}}|{{- settings.social_twitter_link -}}|{{- settings.social_facebook_link -}}|{{- settings.social_pinterest_link -}}|{{- settings.social_tiktok_link -}}|{{- settings.social_tumblr_link -}}|{{- settings.social_snapchat_link -}}|{{- settings.social_youtube_link -}}|{{- settings.social_vimeo_link -}}
+{%- endcapture -%}
+{%- assign social_links_array = social_links | split: '|' -%}
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -452,16 +458,17 @@
     {% if settings.logo %}
       "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
+    "description": {{ shop.description | default: 'Solid wood standing desks and audio furniture handcrafted in Tokyo, Japan.' | json }},
     "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
+      {%- assign printed_link = false -%}
+      {%- for link in social_links_array -%}
+        {%- assign trimmed_link = link | strip -%}
+        {%- if trimmed_link != blank -%}
+          {%- if printed_link -%},{%- endif -%}
+          {{ trimmed_link | json }}
+          {%- assign printed_link = true -%}
+        {%- endif -%}
+      {%- endfor -%}
     ],
     "url": {{ request.origin | append: page.url | json }}
   }
