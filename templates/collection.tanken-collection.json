@@ -137,12 +137,80 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "multicolumn_XPBbnK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_4CNxx9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/PHOTO-2026-08-24-13-27-17_2.jpg",
+            "title": "Michael Cramer",
+            "text": "<p>I couldn’t be happier with my standing desk from Kenwork. The level of craftsmanship is exceptional and it’s apparent how every single detail was thought out.<br/><br/>Not only is it aesthetically beautiful, but setting up was so easy! The video instructions are easy to follow and the slots everything fit into made it so simple… and this is coming from someone who is notoriously bad at putting things together.<br/><br/>Last but not least, as someone who is actively trying to promote sustainable practices into my purchaes, understanding how each material was properly sources was a major driver in my decision to buy my standing desk.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_AyaFNx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-09-17_at_17.53.15.png",
+            "title": "Gloria Ng",
+            "text": "<p>I purchased this handcrafted standing desk for my boss; the quality exceeded our expectations. The craftsmanship is exceptional, with beautiful finishing and great attention to detail. The desk is solid, elegant, and clearly built to last.<br/><br/>My boss was so pleased with it that he ended up ordering three more desks for friends and family. That says more than any review could. Highly recommend KENWORK if you're looking for a premium, handcrafted piece of furniture. 😊</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_By6dYQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5047-preview.heic",
+            "title": "Carmen Zlateff",
+            "text": "<p>I’ve been using this handcrafted standing desk for a year now.  It is as beautiful and functional today as it was a year ago.<br/><br/>Assembly was simple and easily handled by one person along with the online video tutorial.<br/><br/>The craftsmanship is exceptional.  It has the sculptural presence of something you’d see in a gallery, yet it’s something so convenient you use it every day.<br/><br/>The cord management is smart and clean, the accessory space is thoughtfully laid out, and the desktop raises into a drafting position with ease.<br/><br/>It’s rare to find something that balances artistry and practicality this well.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qxLxra": {
+          "type": "column",
+          "settings": {
+            "title": "David Fontenot",
+            "text": "<p>This table has changed my entire morning routine. For years, I had been trying to develop a habit of writing every morning before I went online and now I finally have that and it’s fundamentally changed my life. There’s something to the spirit of the table that beckons me every morning and carries a gravity to it that feels special enough to land there as soon as I wake up rather than on my phone.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_4CNxx9",
+        "column_AyaFNx",
+        "column_By6dYQ",
+        "column_qxLxra"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Customer Reviews",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main-collection-banner",
     "featured_product_VrHaJD",
     "featured_collection_p8DMXm",
-    "main-collection-product-grid"
+    "main-collection-product-grid",
+    "multicolumn_XPBbnK"
   ]
 }
