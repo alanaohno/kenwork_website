@@ -1,0 +1,40 @@
+{% comment %}
+  Renders a Sasawashi Color selector for TOMORI as a cart line-item property
+  (properties[Sasawashi Color]) rather than a real Shopify variant option.
+  Color doesn't affect inventory — only Wood species (a real variant option)
+  does — so keeping Color out of the variant system keeps inventory tracked
+  cleanly at the wood-species level instead of fragmenting across every
+  wood+color combination.
+
+  Accepts:
+  - product_form_id: {String} the add-to-cart form's id, so this radio group
+    submits with it despite living outside the <form> element (matches the
+    form="..." pattern already used by real variant option inputs).
+  - section_id: {String} unique id scope for input ids.
+
+  Usage:
+  {% render 'tomori-cover-property', product_form_id: product_form_id, section_id: section.id %}
+{% endcomment %}
+{%- liquid
+  assign colors = 'Black,Natural,Dark Olive,Orange' | split: ','
+  assign default_color = colors.first
+-%}
+<fieldset class="js product-form__input product-form__input--pill" data-tomori-cover-picker>
+  <legend class="form__label">Sasawashi Color</legend>
+  {%- for color in colors -%}
+    {%- assign input_id = 'TomoriCover-' | append: section_id | append: '-' | append: forloop.index0 -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="properties[Sasawashi Color]"
+      value="{{ color | escape }}"
+      form="{{ product_form_id }}"
+      {% if color == default_color %}
+        checked
+      {% endif %}
+    >
+    <label for="{{ input_id }}">
+      {{- color -}}
+    </label>
+  {%- endfor -%}
+</fieldset>
