@@ -3,13 +3,13 @@
 // two things on top of the theme's own native <media-gallery>:
 //
 // 1. Hides every combo slide/thumbnail that doesn't belong to the currently
-//    selected Wood species (a real variant), so the thumbnail strip only
-//    shows the current wood's photos + any general/common ones. Re-applied
-//    on every real variant change (PUB_SUB_EVENTS.variantChange).
+//    selected Wood species (a real variant) + Sasawashi Color, so the strip
+//    only shows that combo's on/off photos + any general/common ones.
+//    Re-applied on every real variant change (PUB_SUB_EVENTS.variantChange)
+//    and every Color change.
 // 2. Jumps to the matching "off" photo via the gallery's own
-//    setActiveMedia() method whenever Sasawashi Color changes — Color is a
-//    cart line-item property, not a real variant, so nothing native reacts
-//    to it on its own.
+//    setActiveMedia() method after filtering — Color is a cart line-item
+//    property, not a real variant, so nothing native reacts to it on its own.
 //
 // Nothing here replaces or duplicates the native gallery markup/behavior —
 // hidden slides are automatically excluded from slider navigation by the
@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function getMediaItems(root) {
-    return Array.prototype.slice.call(root.querySelectorAll('[data-media-id]'));
+    // Main slides carry data-media-id; thumbnail <li>s carry data-target instead.
+    return Array.prototype.slice.call(root.querySelectorAll('li[data-media-id], li[data-target]'));
   }
 
   function parseCombo(el) {
@@ -54,17 +55,50 @@ document.addEventListener('DOMContentLoaded', function () {
     return checked.value.toLowerCase().replace('dark ', '');
   }
 
-  function applyWoodFilter() {
+  function applyComboFilter() {
     var mediaGallery = getMediaGallery();
     var woodKey = getSelectedWoodKey();
-    if (!mediaGallery || !woodKey) return;
+    var colorKey = getSelectedColorKey();
+    if (!mediaGallery || !woodKey || !colorKey) return;
 
     [mediaGallery.elements.viewer, mediaGallery.elements.thumbnails].forEach(function (component) {
       if (!component) return;
-      getMediaItems(component).forEach(function (el) {
+      var items = getMediaItems(component);
+      if (!items.length) return;
+
+      var offEl = null;
+      var onEl = null;
+      var common = [];
+      var hiddenEls = [];
+      items.forEach(function (el) {
         var combo = parseCombo(el);
-        el.hidden = !!combo && combo.wood !== woodKey;
+        if (!combo) {
+          common.push(el);
+        } else if (combo.wood !== woodKey || combo.color !== colorKey) {
+          hiddenEls.push(el);
+        } else if (combo.state === 'off' && !offEl) {
+          offEl = el;
+        } else if (combo.state === 'on' && !onEl) {
+          onEl = el;
+        } else {
+          // Same wood+color+state uploaded more than once: show only the first.
+          console.warn('Tomori gallery: duplicate ' + combo.state + ' photo hidden', el.querySelector('img').src);
+          hiddenEls.push(el);
+        }
       });
+
+      // Always: off, on, then the common photos (hidden ones parked at the end).
+      var ordered = [offEl, onEl].filter(Boolean).concat(common);
+      var parent = items[0].parentNode;
+      ordered.forEach(function (el) {
+        el.hidden = false;
+        parent.appendChild(el);
+      });
+      hiddenEls.forEach(function (el) {
+        el.hidden = true;
+        parent.appendChild(el);
+      });
+
       if (typeof component.resetPages === 'function') component.resetPages();
     });
 
@@ -78,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!mediaGallery || !woodKey || !colorKey) return;
 
     var targetEl = getMediaItems(mediaGallery.elements.viewer).find(function (el) {
-      var combo = parseCombo(el);
+      var combo = el.dataset.mediaId && parseCombo(el);
       return combo && combo.wood === woodKey && combo.color === colorKey && combo.state === 'off';
     });
     if (targetEl && typeof mediaGallery.setActiveMedia === 'function') {
@@ -88,18 +122,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!getMediaGallery()) return;
 
-  applyWoodFilter();
+  applyComboFilter();
 
   document.addEventListener('change', function (event) {
     if (event.target.name === 'properties[Sasawashi Color]') {
-      jumpToCurrentSelection();
+      applyComboFilter();
     }
   });
 
   if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
     subscribe(PUB_SUB_EVENTS.variantChange, function () {
       // Give the AJAX-swapped gallery markup a tick to land before filtering it.
-      window.setTimeout(applyWoodFilter, 0);
+      window.setTimeout(applyComboFilter, 0);
     });
   }
 });
