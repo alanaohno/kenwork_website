@@ -4,7 +4,8 @@
   Color doesn't affect inventory — only Wood species (a real variant option)
   does — so keeping Color out of the variant system keeps inventory tracked
   cleanly at the wood-species level instead of fragmenting across every
-  wood+color combination.
+  wood+color combination. Which photos show for each wood+color is handled by
+  the shared variant-photos snippet/script (custom.variant_photos metafield).
 
   Accepts:
   - product_form_id: {String} the add-to-cart form's id, so this radio group
@@ -38,4 +39,3 @@
     </label>
   {%- endfor -%}
 </fieldset>
-<script src="{{ 'tomori-cover-gallery.js' | asset_url }}" defer="defer"></script>

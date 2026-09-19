@@ -423,6 +423,7 @@
                   {%- elsif product.handle == 'tomori-the-speaker-stand' -%}
                     {%- render 'tomori-cover-property', product_form_id: product_form_id, section_id: section.id -%}
                   {%- endif -%}
+                  {%- render 'variant-photos', product: product -%}
                 {%- when 'buy_buttons' -%}
                   {%- if product.handle == 'tanken-the-standing-desk' -%}
                     {%- render 'shipping-quote-gate',

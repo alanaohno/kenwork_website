@@ -1,0 +1,47 @@
+{% comment %}
+  Opt-in photo override per wood species + color/leather combo, shared by
+  TANKEN and TOMORI. Reads the product's `custom.variant_photos` JSON
+  metafield and, if it exists, hands it to assets/variant-photos.js, which
+  shows only the listed photos for a matching combo. Any combo not listed in
+  the JSON (or a product with no metafield) is left alone, so the gallery
+  keeps working natively / via GG Variant Images.
+
+  The "color" half of the combo comes from whichever exists on the product:
+  - a real variant option named "Leather Cover" (Tanken), or
+  - the Sasawashi Color line-item-property radios (Tomori — see
+    tomori-cover-property.liquid), which aren't a real variant.
+
+  Accepts:
+  - product: {Object} Product liquid object
+
+  Usage:
+  {% render 'variant-photos', product: product %}
+{% endcomment %}
+{%- liquid
+  assign photo_map = product.metafields.custom.variant_photos.value
+  assign wood_position = nil
+  assign color_position = nil
+  for option in product.options_with_values
+    assign option_name = option.name | downcase
+    if option_name == 'wood species'
+      assign wood_position = option.position
+    elsif option_name == 'leather cover'
+      assign color_position = option.position
+    endif
+  endfor
+-%}
+{%- if photo_map != blank and wood_position -%}
+  <script
+    type="application/json"
+    data-variant-photos
+    data-wood-position="{{ wood_position }}"
+    {% if color_position %}
+      data-color-position="{{ color_position }}"
+    {% else %}
+      data-color-input-name="properties[Sasawashi Color]"
+    {% endif %}
+  >
+    {{- photo_map | json -}}
+  </script>
+  <script src="{{ 'variant-photos.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
