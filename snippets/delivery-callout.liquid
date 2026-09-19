@@ -1,0 +1,108 @@
+{% comment %}
+  Renders stacked highlights (delivery time + free shipping) that sit directly
+  above the Add to Cart button. Delivery copy is per product; renders nothing
+  for other products.
+
+  Accepts:
+  - product: {Object} product object.
+
+  Usage:
+  {% render 'delivery-callout', product: product %}
+{% endcomment %}
+{%- liquid
+  assign delivery_icon = null
+  assign delivery_headline = null
+  assign delivery_detail = null
+
+  case product.handle
+    when 'tomori-the-speaker-stand'
+      assign delivery_icon = 'plant'
+      assign delivery_headline = 'Handmade'
+      assign delivery_detail = 'Ships in 1 week'
+    when 'tanken-the-standing-desk'
+      assign delivery_icon = 'plant'
+      assign delivery_headline = 'Made to Order'
+      assign delivery_detail = 'Ships in 6-10 weeks'
+  endcase
+-%}
+
+{%- if delivery_headline != null -%}
+  <style>
+    .delivery-callout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin: 2.8rem 0;
+      text-align: center;
+    }
+
+    .delivery-callout__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .delivery-callout__icon {
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-bottom: 0.3rem;
+      color: rgb(var(--color-foreground));
+    }
+
+    .delivery-callout__icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .delivery-callout__headline {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+      line-height: 1.2;
+    }
+
+    .delivery-callout__detail {
+      margin: 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      line-height: 1.3;
+      color: rgba(var(--color-foreground), 0.75);
+    }
+
+    .delivery-callout__detail a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 0.3rem;
+    }
+
+    .delivery-callout__detail a:hover {
+      text-decoration-thickness: 0.2rem;
+    }
+  </style>
+
+  <div class="delivery-callout">
+    <div class="delivery-callout__item">
+      <span class="delivery-callout__icon" aria-hidden="true">
+        {{- 'icon-' | append: delivery_icon | append: '.svg' | inline_asset_content -}}
+      </span>
+      <p class="delivery-callout__headline">{{ delivery_headline }}</p>
+      {%- if delivery_detail != null -%}
+        <p class="delivery-callout__detail">{{ delivery_detail }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="delivery-callout__item">
+      <span class="delivery-callout__icon" aria-hidden="true">
+        {{- 'icon-plane.svg' | inline_asset_content -}}
+      </span>
+      <p class="delivery-callout__headline">Free Worldwide Shipping</p>
+      <p class="delivery-callout__detail">
+        <a href="{{ routes.root_url }}pages/shipping-policy">Shipping Policy</a>
+      </p>
+    </div>
+  </div>
+{%- endif -%}
