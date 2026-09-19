@@ -18,27 +18,6 @@
         "color_scheme": "scheme-1"
       }
     },
-    "main-collection-product-grid": {
-      "type": "main-collection-product-grid",
-      "disabled": true,
-      "settings": {
-        "products_per_page": 8,
-        "columns_desktop": 3,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "enable_filtering": false,
-        "filter_type": "horizontal",
-        "enable_sorting": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "featured_product_Jh7nAD": {
       "type": "featured-product",
       "blocks": {
@@ -110,11 +89,600 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "featured_collection_p8DMXm": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "add-ons",
+        "products_to_show": 2,
+        "title": "Add-ons",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 5,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "rich_text_zdiRcn": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".patent-badge {text-align: center; max-width: 40rem; margin: 0 auto;}",
+        ".patent-badge__icon {width: 6rem; height: 6rem; margin: 0 auto 1.5rem; display: block;}",
+        ".patent-badge__heading {font-family: var(--font-heading-family); font-size: 2.4rem; margin: 0 0 1.2rem;}",
+        ".patent-badge__rule {width: 4rem; height: 0.1rem; background: currentColor; opacity: 0.4; margin: 0 auto 1.2rem;}",
+        ".patent-badge__numbers {font-size: 1.3rem; letter-spacing: 0.15rem; text-transform: uppercase; opacity: 0.75; margin: 0;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"patent-badge\"><svg class=\"patent-badge__icon\" viewBox=\"0 0 60 60\" aria-hidden=\"true\"><circle cx=\"30\" cy=\"30\" r=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"30\" cy=\"30\" r=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><polygon points=\"30,22 38,30 30,38 22,30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/></svg><h2 class=\"patent-badge__heading\">Design Patent Approved</h2><div class=\"patent-badge__rule\"></div><p class=\"patent-badge__numbers\">US Patent D966,013 S &middot; JP 意匠登録 1694750</p></div>",
+        "color_scheme": "scheme-5",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_XPBbnK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_AyaFNx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-09-17_at_17.53.15.png",
+            "reviewer": "Gloria Ng",
+            "stars": 5,
+            "title": "Ended up ordering three more desks for friends and family.",
+            "review": "<p>I purchased this handcrafted standing desk for my boss; the quality exceeded our expectations. The craftsmanship is exceptional, with beautiful finishing and great attention to detail. The desk is solid, elegant, and clearly built to last.<br/><br/>My boss was so pleased with it that he ended up ordering three more desks for friends and family. That says more than any review could. Highly recommend KENWORK if you're looking for a premium, handcrafted piece of furniture. 😊</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_4CNxx9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/PHOTO-2026-08-24-13-27-17_2.jpg",
+            "reviewer": "Michael Cramer",
+            "stars": 5,
+            "title": "Understanding how each material was properly sources was a major driver in my decision to buy my standing desk.",
+            "review": "<p>I couldn’t be happier with my standing desk from Kenwork. The level of craftsmanship is exceptional and it’s apparent how every single detail was thought out.<br/><br/>Not only is it aesthetically beautiful, but setting up was so easy! The video instructions are easy to follow and the slots everything fit into made it so simple… and this is coming from someone who is notoriously bad at putting things together.<br/><br/>Last but not least, as someone who is actively trying to promote sustainable practices into my purchaes, understanding how each material was properly sources was a major driver in my decision to buy my standing desk.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_By6dYQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5047-preview.heic",
+            "reviewer": "Carmen Zlateff",
+            "stars": 5,
+            "title": "It is as beautiful and functional today as it was a year ago.",
+            "review": "<p>I’ve been using this handcrafted standing desk for a year now.  It is as beautiful and functional today as it was a year ago.<br/><br/>Assembly was simple and easily handled by one person along with the online video tutorial.<br/><br/>The craftsmanship is exceptional.  It has the sculptural presence of something you’d see in a gallery, yet it’s something so convenient you use it every day.<br/><br/>The cord management is smart and clean, the accessory space is thoughtfully laid out, and the desktop raises into a drafting position with ease.<br/><br/>It’s rare to find something that balances artistry and practicality this well.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qxLxra": {
+          "type": "column",
+          "settings": {
+            "reviewer": "David Fontenot",
+            "stars": 5,
+            "title": "There’s something to the spirit of the table that beckons me every morning and carries a gravity to it that feels special enough to land there as soon as I wake up rather than on my phone.",
+            "review": "<p>This table has changed my entire morning routine. For years, I had been trying to develop a habit of writing every morning before I went online and now I finally have that and it’s fundamentally changed my life. There’s something to the spirit of the table that beckons me every morning and carries a gravity to it that feels special enough to land there as soon as I wake up rather than on my phone.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_AyaFNx",
+        "column_4CNxx9",
+        "column_By6dYQ",
+        "column_qxLxra"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Customer Reviews",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blocks_pjfme9": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c83cc1b_HHFx3K": {
+          "type": "ai_gen_block_c83cc1b",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/240505_24861.jpg",
+            "desktop_width_percent": 100,
+            "show_logo_overlay": true,
+            "logo_image": "shopify://shop_images/Tanken-TheStandingDesk-white-bigger-subtitle.png",
+            "logo_position": "center",
+            "logo_width_desktop": 400,
+            "logo_width_mobile": 180,
+            "logo_offset": 75,
+            "logo_opacity": 1
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c83cc1b_HHFx3K"
+      ],
+      "settings": {}
+    },
+    "image_banner_96wgFz": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "featured_product_NkPgRx": {
+      "type": "featured-product",
+      "blocks": {
+        "title_hPNQhQ": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_KVLBE6": {
+          "type": "price",
+          "settings": {}
+        },
+        "text_yMJzMc": {
+          "type": "text",
+          "settings": {
+            "text": "Bring nature into your workspace.",
+            "text_style": "subtitle"
+          }
+        },
+        "variant_picker_XaTEVH": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_NR8WgE": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_gAB9LP": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title_hPNQhQ",
+        "price_KVLBE6",
+        "text_yMJzMc",
+        "variant_picker_XaTEVH",
+        "buy_buttons_NR8WgE",
+        "share_gAB9LP"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "tanken-the-standing-desk",
+        "color_scheme": "scheme-4",
+        "secondary_background": false,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": true,
+        "padding_top": 32,
+        "padding_bottom": 48
+      }
+    },
+    "rich_text_eY7MNr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_643fBV": {
+          "type": "heading",
+          "settings": {
+            "heading": "機能美",
+            "heading_size": "h2"
+          }
+        },
+        "text_UKxWL9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>functional beauty</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_643fBV",
+        "text_UKxWL9"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_tA3Yrp": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24835.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_tgadUQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wYmKhc": {
+          "type": "heading",
+          "settings": {
+            "heading": "国産の無垢木材、天然皮革。",
+            "heading_size": "h2"
+          }
+        },
+        "heading_TDrT9C": {
+          "type": "heading",
+          "settings": {
+            "heading": "Solid wood, full-grain leather sourced from Japan.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wYmKhc",
+        "heading_TDrT9C"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_BqQCty": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24671.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_4P3E9q": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UkX73T": {
+          "type": "heading",
+          "settings": {
+            "heading": "いらない充電器は隠す。",
+            "heading_size": "h2"
+          }
+        },
+        "text_nGyWYw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hide the chargers you don't want to see.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UkX73T",
+        "text_nGyWYw"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_tnyTbP": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24691.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_xVLFer": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NnmFPe": {
+          "type": "heading",
+          "settings": {
+            "heading": "一台で完結。",
+            "heading_size": "h2"
+          }
+        },
+        "heading_dNd7wC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fit to every working style.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NnmFPe",
+        "heading_dNd7wC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_cycle_gWmR3d": {
+      "type": "image-cycle",
+      "settings": {
+        "height": 600,
+        "width_percent": 60,
+        "enable_fade": false,
+        "seconds_per_image": 1.5,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_iNNcpe": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fDcmFX": {
+          "type": "heading",
+          "settings": {
+            "heading": "極めてシンプル。",
+            "heading_size": "h2"
+          }
+        },
+        "heading_iQjjm3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Supremely simple.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fDcmFX",
+        "heading_iQjjm3"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_GKbwxP": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24896.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_4fbYEj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JwDRRQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "5分で簡単組み立て。",
+            "heading_size": "h2"
+          }
+        },
+        "heading_aYdPaq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build in 5 minutes by hand.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JwDRRQ",
+        "heading_aYdPaq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "video_qVfHaY": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/BV3beRLRX0s?si=_wk7WdPpXjjaobar",
+        "cover_image": "shopify://shop_images/240505_24910.jpg",
+        "description": "How to assemble in under 5 minutes",
+        "full_width": false,
+        "color_scheme": "scheme-5",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main-collection-product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 8,
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main-collection-banner",
-    "main-collection-product-grid",
-    "featured_product_Jh7nAD"
+    "featured_product_Jh7nAD",
+    "featured_collection_p8DMXm",
+    "rich_text_zdiRcn",
+    "multicolumn_XPBbnK",
+    "blocks_pjfme9",
+    "image_banner_96wgFz",
+    "featured_product_NkPgRx",
+    "rich_text_eY7MNr",
+    "image_banner_tA3Yrp",
+    "rich_text_tgadUQ",
+    "image_banner_BqQCty",
+    "rich_text_4P3E9q",
+    "image_banner_tnyTbP",
+    "rich_text_xVLFer",
+    "image_cycle_gWmR3d",
+    "rich_text_iNNcpe",
+    "image_banner_GKbwxP",
+    "rich_text_4fbYEj",
+    "video_qVfHaY",
+    "main-collection-product-grid"
   ]
 }
