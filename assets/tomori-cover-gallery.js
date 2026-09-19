@@ -3,6 +3,11 @@
 // changes arrive via the theme's own PUB_SUB_EVENTS.variantChange. Color is
 // a cart line-item property (not a real variant), so its changes are read
 // directly from the radio group's change event instead.
+//
+// Slide navigation itself (prev/next, which slide is visible) is handled by
+// the shared <simple-image-gallery> custom element (simple-image-gallery.js)
+// — this script only swaps image src and then calls its showSlide(0) so the
+// change is immediately visible.
 document.addEventListener('DOMContentLoaded', function () {
   var container = document.querySelector('[data-tomori-cover-gallery]');
   if (!container) return;
@@ -30,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!pair) return;
     offImage.src = pair[0];
     onImage.src = pair[1];
+    if (typeof container.showSlide === 'function') container.showSlide(0);
   }
 
   function getCheckedColor() {

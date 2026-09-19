@@ -1,7 +1,7 @@
 {% comment %}
-  Replaces the standard product media gallery for TOMORI with a swipeable
-  carousel (the theme's own slider-component, same one used elsewhere) that
-  combines:
+  Replaces the standard product media gallery for TOMORI with a one-at-a-time
+  image viewer (prev/next buttons only, no scroll/swipe — via the shared
+  <simple-image-gallery> component) that combines:
   - 2 dynamic slides (lamp off / lamp on) driven by the custom.cover_gallery
     product metafield — JSON keyed by Wood species then Sasawashi Color, each
     value an [off_url, on_url] pair.
@@ -12,7 +12,9 @@
   tomori-cover-property.liquid), not a real variant, so there's no native
   Shopify variant-image mechanism to hook into — tomori-cover-gallery.js
   swaps the 2 dynamic slides' images client-side instead, keyed off the real
-  Wood species variant-change event plus the Color radio's own change event.
+  Wood species variant-change event plus the Color radio's own change event,
+  then asks <simple-image-gallery> to jump back to slide 0 so the change is
+  immediately visible.
 
   Accepts:
   - product: {Object} product object.
@@ -22,6 +24,7 @@
   Usage:
   {% render 'tomori-cover-gallery', product: product, section_id: section.id %}
 {% endcomment %}
+{{ 'component-simple-image-gallery.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign wood_option = product.options_with_values | where: 'name', 'Wood species' | first
   assign gallery_data = product.metafields.custom.cover_gallery.value
@@ -53,71 +56,60 @@
     endunless
   endfor
 -%}
-<style>
-  .tomori-cover-gallery__item {
-    width: 100%;
-  }
-
-  .tomori-cover-gallery__image {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-</style>
-<slider-component class="slider-mobile-gutter" data-tomori-cover-gallery data-section-id="{{ section_id }}">
-  <ul class="tomori-cover-gallery grid grid--1-col-desktop grid--1-col-tablet-down slider slider--tablet" role="list">
-    <li class="tomori-cover-gallery__item grid__item slider__slide">
+<simple-image-gallery data-tomori-cover-gallery data-section-id="{{ section_id }}">
+  <div class="simple-image-gallery__viewer">
+    <div class="simple-image-gallery__slide is-active" data-gallery-slide>
       <img
-        class="tomori-cover-gallery__image"
+        class="simple-image-gallery__image"
         data-tomori-cover-image="off"
         src="{{ off_src }}"
         alt="{{ product.title | escape }} — lamp off"
         width="1500"
         height="1500"
       >
-    </li>
-    <li class="tomori-cover-gallery__item grid__item slider__slide">
+    </div>
+    <div class="simple-image-gallery__slide" data-gallery-slide>
       <img
-        class="tomori-cover-gallery__image"
+        class="simple-image-gallery__image"
         data-tomori-cover-image="on"
         src="{{ on_src }}"
         alt="{{ product.title | escape }} — lamp on"
         width="1500"
         height="1500"
       >
-    </li>
+    </div>
     {%- for media in common_media -%}
       {%- unless media.src contains '_off.jpg' or media.src contains '_on.jpg' -%}
-        <li class="tomori-cover-gallery__item grid__item slider__slide">
+        <div class="simple-image-gallery__slide" data-gallery-slide>
           <img
-            class="tomori-cover-gallery__image"
+            class="simple-image-gallery__image"
             src="{{ media | image_url: width: 1500 }}"
             alt="{{ media.alt | escape }}"
             width="1500"
             height="{{ 1500 | divided_by: media.aspect_ratio }}"
             loading="lazy"
           >
-        </li>
+        </div>
       {%- endunless -%}
     {%- endfor -%}
-  </ul>
-  <div class="slider-buttons">
-    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
+  </div>
+  <div class="simple-image-gallery__controls">
+    <button type="button" name="previous" data-gallery-prev aria-label="{{ 'general.slider.previous_slide' | t }}">
       <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
     </button>
     <div class="slider-counter caption">
-      <span class="slider-counter--current">1</span>
+      <span data-gallery-current>1</span>
       <span aria-hidden="true"> / </span>
       <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-      <span class="slider-counter--total">{{ slide_count }}</span>
+      <span>{{ slide_count }}</span>
     </div>
-    <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
+    <button type="button" name="next" data-gallery-next aria-label="{{ 'general.slider.next_slide' | t }}">
       <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
     </button>
   </div>
   <script type="application/json" data-tomori-cover-gallery-data>
     {{ gallery_data | json }}
   </script>
-</slider-component>
+</simple-image-gallery>
+<script src="{{ 'simple-image-gallery.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'tomori-cover-gallery.js' | asset_url }}" defer="defer"></script>
