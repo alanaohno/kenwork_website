@@ -49,6 +49,10 @@
     font-weight: 600;
   }
 
+  .shipping-quote-gate:has([data-panel='habachy']:not([hidden])) .delivery-callout {
+    display: none;
+  }
+
   .shipping-quote-gate__back {
     display: block;
     margin-top: 1.5rem;
@@ -89,6 +93,12 @@
     class="shipping-quote-gate"
     data-wood-species="{{ wood_option.selected_value | escape }}"
   >
+    {%- comment -%}
+      Rendered outside the panels so it stays visible from the ZIP step
+      through purchase. Hidden only for the Habachy panel (no Add to Cart).
+    {%- endcomment -%}
+    {%- render 'delivery-callout', product: product -%}
+
     <div class="shipping-quote-gate__panel" data-panel="gate">
       <div class="product-form__input">
         <label class="form__label">ZIP code</label>
@@ -250,7 +260,8 @@
       product: product,
       product_form_id: product_form_id,
       section_id: section.id,
-      show_pickup_availability: true
+      show_pickup_availability: true,
+      show_delivery_callout: true
     -%}
   </div>
 

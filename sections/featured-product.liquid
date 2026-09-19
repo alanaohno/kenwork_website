@@ -180,6 +180,7 @@
                     {{- product.selected_or_first_available_variant.sku -}}
                   </p>
                 {%- when 'quantity_selector' -%}
+                  {%- unless product.handle == 'tanken-the-standing-desk' -%}
                   <div
                     id="Quantity-Form-{{ section.id }}"
                     class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
@@ -407,6 +408,7 @@
                       </volume-pricing>
                     {%- endif -%}
                   </div>
+                  {%- endunless -%}
                 {%- when 'share' -%}
                   {% liquid
                     assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -436,7 +438,8 @@
                       block: block,
                       product: product,
                       product_form_id: product_form_id,
-                      section_id: section.id
+                      section_id: section.id,
+                      show_delivery_callout: true
                     -%}
                   {%- endif -%}
                 {%- when 'custom_liquid' -%}
