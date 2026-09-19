@@ -90,35 +90,6 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_p8DMXm": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "add-ons",
-        "products_to_show": 2,
-        "title": "Add-ons",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 5,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 24,
-        "padding_bottom": 24
-      }
-    },
     "rich_text_zdiRcn": {
       "type": "custom-liquid",
       "custom_css": [
@@ -134,81 +105,6 @@
         "color_scheme": "scheme-5",
         "padding_top": 40,
         "padding_bottom": 52
-      }
-    },
-    "multicolumn_XPBbnK": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_AyaFNx": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2026-09-17_at_17.53.15.png",
-            "reviewer": "Gloria Ng",
-            "stars": 5,
-            "title": "Ended up ordering three more desks for friends and family.",
-            "review": "<p>I purchased this handcrafted standing desk for my boss; the quality exceeded our expectations. The craftsmanship is exceptional, with beautiful finishing and great attention to detail. The desk is solid, elegant, and clearly built to last.<br/><br/>My boss was so pleased with it that he ended up ordering three more desks for friends and family. That says more than any review could. Highly recommend KENWORK if you're looking for a premium, handcrafted piece of furniture. 😊</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_4CNxx9": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/PHOTO-2026-08-24-13-27-17_2.jpg",
-            "reviewer": "Michael Cramer",
-            "stars": 5,
-            "title": "Understanding how each material was properly sources was a major driver in my decision to buy my standing desk.",
-            "review": "<p>I couldn’t be happier with my standing desk from Kenwork. The level of craftsmanship is exceptional and it’s apparent how every single detail was thought out.<br/><br/>Not only is it aesthetically beautiful, but setting up was so easy! The video instructions are easy to follow and the slots everything fit into made it so simple… and this is coming from someone who is notoriously bad at putting things together.<br/><br/>Last but not least, as someone who is actively trying to promote sustainable practices into my purchaes, understanding how each material was properly sources was a major driver in my decision to buy my standing desk.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_By6dYQ": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/IMG_5047-preview.heic",
-            "reviewer": "Carmen Zlateff",
-            "stars": 5,
-            "title": "It is as beautiful and functional today as it was a year ago.",
-            "review": "<p>I’ve been using this handcrafted standing desk for a year now.  It is as beautiful and functional today as it was a year ago.<br/><br/>Assembly was simple and easily handled by one person along with the online video tutorial.<br/><br/>The craftsmanship is exceptional.  It has the sculptural presence of something you’d see in a gallery, yet it’s something so convenient you use it every day.<br/><br/>The cord management is smart and clean, the accessory space is thoughtfully laid out, and the desktop raises into a drafting position with ease.<br/><br/>It’s rare to find something that balances artistry and practicality this well.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_qxLxra": {
-          "type": "column",
-          "settings": {
-            "reviewer": "David Fontenot",
-            "stars": 5,
-            "title": "There’s something to the spirit of the table that beckons me every morning and carries a gravity to it that feels special enough to land there as soon as I wake up rather than on my phone.",
-            "review": "<p>This table has changed my entire morning routine. For years, I had been trying to develop a habit of writing every morning before I went online and now I finally have that and it’s fundamentally changed my life. There’s something to the spirit of the table that beckons me every morning and carries a gravity to it that feels special enough to land there as soon as I wake up rather than on my phone.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_AyaFNx",
-        "column_4CNxx9",
-        "column_By6dYQ",
-        "column_qxLxra"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "Customer Reviews",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "blocks_pjfme9": {
@@ -317,6 +213,8 @@
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "cover",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": false,
@@ -382,43 +280,11 @@
         "show_text_below": true
       }
     },
-    "rich_text_tgadUQ": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_wYmKhc": {
-          "type": "heading",
-          "settings": {
-            "heading": "国産の無垢木材、天然皮革。",
-            "heading_size": "h2"
-          }
-        },
-        "heading_TDrT9C": {
-          "type": "heading",
-          "settings": {
-            "heading": "Solid wood, full-grain leather sourced from Japan.",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_wYmKhc",
-        "heading_TDrT9C"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-5",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "image_banner_BqQCty": {
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/240505_24671.jpg",
+        "image": "shopify://shop_images/240505_24926.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "custom_height_desktop": 1500,
@@ -438,26 +304,83 @@
         "show_text_below": true
       }
     },
-    "rich_text_4P3E9q": {
+    "rich_text_tgadUQ": {
       "type": "rich-text",
       "blocks": {
-        "heading_UkX73T": {
+        "heading_wYmKhc": {
           "type": "heading",
           "settings": {
-            "heading": "いらない充電器は隠す。",
+            "heading": "スピーカーに天然素材を着せる。",
             "heading_size": "h2"
           }
         },
-        "text_nGyWYw": {
-          "type": "text",
+        "heading_TDrT9C": {
+          "type": "heading",
           "settings": {
-            "text": "<p>Hide the chargers you don't want to see.</p>"
+            "heading": "Wrap your speaker in something natural.",
+            "heading_size": "h2"
           }
         }
       },
       "block_order": [
-        "heading_UkX73T",
-        "text_nGyWYw"
+        "heading_wYmKhc",
+        "heading_TDrT9C"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_Wcf64D": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/240505_24916_4de13eb3-2430-4bac-917a-b503817eeb29.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "custom_height_desktop": 1500,
+        "custom_height_mobile": 600,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_EVpN9U": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4EUi9C": {
+          "type": "heading",
+          "settings": {
+            "heading": "無垢木材、笹和紙。",
+            "heading_size": "h2"
+          }
+        },
+        "heading_Kz4ze6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Solid wood, Kumasasa bamboo paper.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4EUi9C",
+        "heading_Kz4ze6"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -473,7 +396,7 @@
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/240505_24691.jpg",
+        "image": "shopify://shop_images/240505_24920_fd8e6e5d-2a1c-4d99-9463-1c627d370a8d.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "custom_height_desktop": 1500,
@@ -499,14 +422,14 @@
         "heading_NnmFPe": {
           "type": "heading",
           "settings": {
-            "heading": "一台で完結。",
+            "heading": "行燈から想を得た。",
             "heading_size": "h2"
           }
         },
         "heading_dNd7wC": {
           "type": "heading",
           "settings": {
-            "heading": "Fit to every working style.",
+            "heading": "Inspired by Japanese Andon lanterns.",
             "heading_size": "h2"
           }
         }
@@ -525,15 +448,28 @@
         "padding_bottom": 52
       }
     },
-    "image_cycle_gWmR3d": {
-      "type": "image-cycle",
+    "image_banner_GKbwxP": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "height": 600,
-        "width_percent": 60,
-        "enable_fade": false,
-        "seconds_per_image": 1.5,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "image": "shopify://shop_images/230221_2912.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "custom_height_desktop": 1560,
+        "custom_height_mobile": 580,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "enable_precise_position": false,
+        "content_position_x": 50,
+        "content_position_y": 50,
+        "content_position_x_mobile": 50,
+        "content_position_y_mobile": 50,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
       }
     },
     "rich_text_iNNcpe": {
@@ -542,14 +478,14 @@
         "heading_fDcmFX": {
           "type": "heading",
           "settings": {
-            "heading": "極めてシンプル。",
+            "heading": "最小限の構造。",
             "heading_size": "h2"
           }
         },
         "heading_iQjjm3": {
           "type": "heading",
           "settings": {
-            "heading": "Supremely simple.",
+            "heading": "Minimal construction.",
             "heading_size": "h2"
           }
         }
@@ -566,78 +502,6 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
-      }
-    },
-    "image_banner_GKbwxP": {
-      "type": "image-banner",
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/240505_24896.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "custom_height_desktop": 1500,
-        "custom_height_mobile": 600,
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "enable_precise_position": false,
-        "content_position_x": 50,
-        "content_position_y": 50,
-        "content_position_x_mobile": 50,
-        "content_position_y_mobile": 50,
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
-    "rich_text_4fbYEj": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_JwDRRQ": {
-          "type": "heading",
-          "settings": {
-            "heading": "5分で簡単組み立て。",
-            "heading_size": "h2"
-          }
-        },
-        "heading_aYdPaq": {
-          "type": "heading",
-          "settings": {
-            "heading": "Build in 5 minutes by hand.",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_JwDRRQ",
-        "heading_aYdPaq"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-5",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "video_qVfHaY": {
-      "type": "video",
-      "name": "t:sections.video.presets.name",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://youtu.be/BV3beRLRX0s?si=_wk7WdPpXjjaobar",
-        "cover_image": "shopify://shop_images/240505_24910.jpg",
-        "description": "How to assemble in under 5 minutes",
-        "full_width": false,
-        "color_scheme": "scheme-5",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "main-collection-product-grid": {
@@ -665,24 +529,20 @@
   "order": [
     "main-collection-banner",
     "featured_product_Jh7nAD",
-    "featured_collection_p8DMXm",
     "rich_text_zdiRcn",
-    "multicolumn_XPBbnK",
     "blocks_pjfme9",
     "image_banner_96wgFz",
     "featured_product_NkPgRx",
     "rich_text_eY7MNr",
     "image_banner_tA3Yrp",
-    "rich_text_tgadUQ",
     "image_banner_BqQCty",
-    "rich_text_4P3E9q",
+    "rich_text_tgadUQ",
+    "image_banner_Wcf64D",
+    "rich_text_EVpN9U",
     "image_banner_tnyTbP",
     "rich_text_xVLFer",
-    "image_cycle_gWmR3d",
-    "rich_text_iNNcpe",
     "image_banner_GKbwxP",
-    "rich_text_4fbYEj",
-    "video_qVfHaY",
+    "rich_text_iNNcpe",
     "main-collection-product-grid"
   ]
 }
