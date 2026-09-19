@@ -1,7 +1,7 @@
 {% comment %}
-  Renders stacked highlights (delivery time + free shipping) that sit directly
-  above the Add to Cart button. Delivery copy is per product; renders nothing
-  for other products.
+  Renders two highlights (delivery time + shipping) that sit directly above
+  the Add to Cart button. Copy is per product; renders nothing for other
+  products.
 
   Accepts:
   - product: {Object} product object.
@@ -13,16 +13,23 @@
   assign delivery_icon = null
   assign delivery_headline = null
   assign delivery_detail = null
+  assign shipping_headline = null
+  assign shipping_detail = null
+  assign show_policy_link = false
 
   case product.handle
     when 'tomori-the-speaker-stand'
       assign delivery_icon = 'plant'
       assign delivery_headline = 'Handmade'
       assign delivery_detail = 'Ships in 1 week'
+      assign shipping_headline = 'Free Worldwide Shipping'
+      assign show_policy_link = true
     when 'tanken-the-standing-desk'
       assign delivery_icon = 'plant'
       assign delivery_headline = 'Made to Order'
       assign delivery_detail = 'Ships in 6-10 weeks'
+      assign shipping_headline = 'Air Freight with DDP'
+      assign shipping_detail = 'Shipping fee includes all duties, taxes, and standard handling fees'
   endcase
 -%}
 
@@ -99,10 +106,15 @@
       <span class="delivery-callout__icon" aria-hidden="true">
         {{- 'icon-plane.svg' | inline_asset_content -}}
       </span>
-      <p class="delivery-callout__headline">Free Worldwide Shipping</p>
-      <p class="delivery-callout__detail">
-        <a href="{{ routes.root_url }}pages/shipping-policy">Shipping Policy</a>
-      </p>
+      <p class="delivery-callout__headline">{{ shipping_headline }}</p>
+      {%- if shipping_detail != null -%}
+        <p class="delivery-callout__detail">{{ shipping_detail }}</p>
+      {%- endif -%}
+      {%- if show_policy_link -%}
+        <p class="delivery-callout__detail">
+          <a href="{{ routes.root_url }}pages/shipping-policy">Shipping Policy</a>
+        </p>
+      {%- endif -%}
     </div>
   </div>
 {%- endif -%}
