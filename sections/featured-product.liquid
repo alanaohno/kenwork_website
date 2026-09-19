@@ -14,6 +14,7 @@
     data-zoom-on-hover
   {% endif %}
 >
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
@@ -73,9 +74,7 @@
       <div class="featured-product product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col gradient color-{{ section.settings.color_scheme }} product--{{ section.settings.media_position }}{% if section.settings.secondary_background == false %} isolate{% endif %} {% if product.media.size > 0 or section.settings.product == blank %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
           {%- unless placeholder -%}
-            {%- if product.handle == 'tomori-the-speaker-stand' -%}
-              {%- render 'tomori-cover-gallery', product: product, section_id: section.id -%}
-            {%- elsif product.handle == 'tanken-the-standing-desk' -%}
+            {%- if product.handle == 'tomori-the-speaker-stand' or product.handle == 'tanken-the-standing-desk' -%}
               {% render 'product-media-gallery', product: product, variant_images: variant_images %}
             {%- else -%}
               {% render 'product-media-gallery', product: product, variant_images: variant_images, limit: 1 %}
