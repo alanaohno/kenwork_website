@@ -75,6 +75,65 @@ variant-selects {
   position: relative;
 }
 
+/* Text after a "(" in a pill label is shown as a smaller second line. */
+.product-form__input--pill input[type='radio'] + label:has(.pill-label__sub) {
+  padding: 0.9rem 1.6rem;
+  line-height: 1.2;
+}
+
+/* Extra fields nested in a pill group (e.g. custom height) always take a full
+   row of their own, below the pills. */
+.product-form__input--pill {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-form__input--pill > .product-form__input {
+  flex: 0 0 100%;
+}
+
+/* Forces the next pill onto a new row (used for "Custom Height"). */
+.pill-row-break {
+  flex: 0 0 100%;
+  height: 0;
+}
+
+/* On desktop, keep all options of a pill group on a single row, sharing the
+   width equally, so the group takes up less vertical space. Mobile lets the
+   pills wrap onto more rows. */
+@media screen and (min-width: 750px) {
+  .product-form__input--pill {
+    column-gap: 0.5rem;
+  }
+
+  .product-form__input--pill input[type='radio'] + label,
+  .product-form__input--pill input[type='radio'] + label:has(.pill-label__sub) {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0.7rem 0 0.2rem 0;
+    padding: 0.9rem 0.4rem;
+    overflow-wrap: anywhere;
+  }
+
+  /* The pill after a row break keeps its natural width instead of stretching. */
+  .product-form__input--pill .pill-row-break + input[type='radio'] + label {
+    flex: 0 0 auto;
+    padding: 0.9rem 2rem;
+  }
+}
+
+.pill-label__main,
+.pill-label__sub {
+  display: block;
+}
+
+.pill-label__sub {
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  margin-top: 0.3rem;
+  opacity: 0.8;
+}
+
 .product-form__input--pill input[type='radio'] + label:before {
   content: '';
   position: absolute;

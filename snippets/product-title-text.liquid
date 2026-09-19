@@ -1,0 +1,22 @@
+{% comment %}
+  Renders a product title, splitting "TANKEN The Standing Desk" into the
+  product name and a smaller subtitle on its own line ("The Standing Desk").
+  Titles without " The " render unchanged.
+
+  Accepts:
+  - title: {String} the product title.
+
+  Usage:
+  {% render 'product-title-text', title: product.title %}
+{% endcomment %}
+{%- liquid
+  assign title_string = title | escape
+  assign parts = title_string | split: ' The '
+-%}
+{%- if parts.size > 1 -%}
+  {%- assign subtitle = parts | slice: 1, parts.size | join: ' The ' -%}
+  <span class="product__title-name">{{ parts[0] }}</span>
+  <span class="product__title-subtitle">The {{ subtitle }}</span>
+{%- else -%}
+  {{- title_string -}}
+{%- endif -%}
