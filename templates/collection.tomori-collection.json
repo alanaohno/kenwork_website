@@ -130,7 +130,7 @@
       ],
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"patent-badge\"><svg class=\"patent-badge__icon\" viewBox=\"0 0 60 60\" aria-hidden=\"true\"><circle cx=\"30\" cy=\"30\" r=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"30\" cy=\"30\" r=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><polygon points=\"30,22 38,30 30,38 22,30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/></svg><h2 class=\"patent-badge__heading\">Design Patent Approved</h2><div class=\"patent-badge__rule\"></div><p class=\"patent-badge__numbers\">US Patent D966,013 S &middot; JP 意匠登録 1694750</p></div>",
+        "custom_liquid": "<div class=\"patent-badge\"><svg class=\"patent-badge__icon\" viewBox=\"0 0 60 60\" aria-hidden=\"true\"><circle cx=\"30\" cy=\"30\" r=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"30\" cy=\"30\" r=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><polygon points=\"30,22 38,30 30,38 22,30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/></svg><h2 class=\"patent-badge__heading\">Design Patent Approved</h2><div class=\"patent-badge__rule\"></div><p class=\"patent-badge__numbers\">JP 意匠登録 1746300</p></div>",
         "color_scheme": "scheme-5",
         "padding_top": 40,
         "padding_bottom": 52
