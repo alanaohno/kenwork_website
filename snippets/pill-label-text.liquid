@@ -1,0 +1,22 @@
+{% comment %}
+  Renders the text inside a pill selector label. A trailing parenthetical,
+  e.g. "Sakura (Japanese Cherry)" or "Short (95 cm)", is moved onto its own
+  smaller line without the parentheses so the pill can be more compact.
+
+  Accepts:
+  - text: {String} the option value / label text.
+
+  Usage:
+  {% render 'pill-label-text', text: value %}
+{% endcomment %}
+{%- liquid
+  assign text_string = text | escape
+  assign parts = text_string | split: ' ('
+  assign sub_text = parts[1] | remove: ')' | strip
+-%}
+{%- if parts.size > 1 and sub_text != blank -%}
+  <span class="pill-label__main">{{ parts[0] }}</span>
+  <span class="pill-label__sub">{{ sub_text }}</span>
+{%- else -%}
+  {{- text_string -}}
+{%- endif -%}

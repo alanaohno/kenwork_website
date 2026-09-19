@@ -44,6 +44,9 @@
   <legend class="form__label">Height</legend>
   {%- for height in heights -%}
     {%- assign input_id = 'TankenHeight-' | append: section_id | append: '-' | append: forloop.index0 -%}
+    {%- if height == 'Custom Height' -%}
+      <span class="pill-row-break" aria-hidden="true"></span>
+    {%- endif -%}
     <input
       type="radio"
       id="{{ input_id }}"
@@ -58,7 +61,7 @@
       {% endif %}
     >
     <label for="{{ input_id }}">
-      {{- height -}}
+      {%- render 'pill-label-text', text: height -%}
     </label>
   {%- endfor -%}
   <div class="product-form__input" data-tanken-custom-height-field>
