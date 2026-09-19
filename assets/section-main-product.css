@@ -1369,6 +1369,25 @@ a.product__text {
   }
 }
 
+/* Mobile-only 1:1 center crop of main gallery images (opted in per product via
+   .product--mobile-square-crop). Desktop keeps each photo's own aspect ratio. */
+@media screen and (max-width: 749px) {
+  .product--mobile-square-crop .product-media-container.media-type-image {
+    --aspect-ratio: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product--mobile-square-crop .product-media-container.media-type-image .media {
+    padding-top: 100%;
+  }
+
+  .product--mobile-square-crop .product-media-container.media-type-image .media img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
 .product-media-container .product__modal-opener {
   display: block;
   position: relative;
