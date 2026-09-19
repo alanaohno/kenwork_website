@@ -317,6 +317,8 @@
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "cover",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": false,
@@ -438,37 +440,6 @@
         "show_text_below": true
       }
     },
-    "rich_text_4P3E9q": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_UkX73T": {
-          "type": "heading",
-          "settings": {
-            "heading": "いらない充電器は隠す。",
-            "heading_size": "h2"
-          }
-        },
-        "text_nGyWYw": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Hide the chargers you don't want to see.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_UkX73T",
-        "text_nGyWYw"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-5",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "image_banner_tnyTbP": {
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
@@ -514,6 +485,38 @@
       "block_order": [
         "heading_NnmFPe",
         "heading_dNd7wC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_kJE43t": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TG3Mm4": {
+          "type": "heading",
+          "settings": {
+            "heading": "いらない充電器は隠す。",
+            "heading_size": "h2"
+          }
+        },
+        "heading_9xm6Tx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hide the chargers you don't want to see.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TG3Mm4",
+        "heading_9xm6Tx"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -675,9 +678,9 @@
     "image_banner_tA3Yrp",
     "rich_text_tgadUQ",
     "image_banner_BqQCty",
-    "rich_text_4P3E9q",
     "image_banner_tnyTbP",
     "rich_text_xVLFer",
+    "rich_text_kJE43t",
     "image_cycle_gWmR3d",
     "rich_text_iNNcpe",
     "image_banner_GKbwxP",
