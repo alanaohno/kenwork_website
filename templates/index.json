@@ -10,51 +10,18 @@
 {
   "sections": {
     "hero_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Office Furniture for your Living Room",
-            "heading_size": "h1",
-            "heading_font_size": 0,
-            "heading_font_size_mobile": 0
-          }
-        },
-        "heading_cwqrYL": {
-          "type": "text",
-          "settings": {
-            "text": "リビングに置けるオフィス家具",
-            "text_style": "subtitle",
-            "text_font_size": 0,
-            "text_font_size_mobile": 0
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "heading_cwqrYL"
-      ],
-      "name": "t:sections.image-banner.presets.name",
+      "type": "hero-media",
       "settings": {
         "image": "shopify://shop_images/230221_2393.jpg",
-        "image_overlay_opacity": 10,
-        "image_height": "medium",
-        "custom_height_desktop": 1500,
-        "custom_height_mobile": 480,
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "enable_precise_position": true,
-        "content_position_x": 67,
-        "content_position_y": 26,
-        "content_position_x_mobile": 96,
-        "content_position_y_mobile": 22,
-        "show_text_box": false,
-        "color_scheme": "scheme-hero-gold",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
+        "focal_x": 33,
+        "focal_y": 40,
+        "focal_x_mobile": 40,
+        "focal_y_mobile": 50,
+        "overlay_opacity": 10,
+        "heading": "Office Furniture for your Living Room",
+        "subheading": "リビングに置けるオフィス家具",
+        "height_desktop": 100,
+        "height_mobile": 85
       }
     },
     "rich_text_PpbKFc": {
@@ -63,14 +30,14 @@
         "heading_G9384h": {
           "type": "heading",
           "settings": {
-            "heading": "designed in seattle",
+            "heading": "Designed in Seattle",
             "heading_size": "h2"
           }
         },
         "heading_AHzyV7": {
           "type": "heading",
           "settings": {
-            "heading": "handcrafted in tokyo",
+            "heading": "Handmade in Tokyo",
             "heading_size": "h2"
           }
         }
