@@ -8,6 +8,7 @@
 {%- style -%}
   #Hero-{{ section.id }} {
     --hero-height: {{ section.settings.height_mobile }}svh;
+    --hero-top-buffer: {{ section.settings.top_buffer_mobile }}px;
     --hero-focal: {{ section.settings.focal_x_mobile }}% {{ section.settings.focal_y_mobile }}%;
     --hero-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
   }
@@ -15,6 +16,7 @@
   @media screen and (min-width: 750px) {
     #Hero-{{ section.id }} {
       --hero-height: {{ section.settings.height_desktop }}svh;
+      --hero-top-buffer: {{ section.settings.top_buffer }}px;
       --hero-focal: {{ section.settings.focal_x }}% {{ section.settings.focal_y }}%;
     }
   }
@@ -78,13 +80,27 @@
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    background: #000;
+    background: #f6ede6;
     color: #fff;
   }
 
   .hero-media__media {
     position: absolute;
-    inset: 0;
+    /* the top buffer keeps the photo's subject clear of the menu bar floating over it */
+    inset: var(--hero-top-buffer, 0px) 0 0 0;
+  }
+
+  .hero-media__media::before {
+    /* fades the photo's top edge into the buffer colour so there is no hard seam */
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(var(--hero-top-buffer, 0px) * 0.8);
+    background: linear-gradient(to bottom, #f6ede6, rgba(246, 237, 230, 0));
+    pointer-events: none;
   }
 
   .hero-media__media::after {
@@ -258,6 +274,27 @@
     {
       "type": "header",
       "content": "Size"
+    },
+    {
+      "type": "range",
+      "id": "top_buffer",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "label": "Top buffer on desktop",
+      "info": "Space above the photo so the menu bar doesn't cover the subject."
+    },
+    {
+      "type": "range",
+      "id": "top_buffer_mobile",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "label": "Top buffer on mobile"
     },
     {
       "type": "range",
