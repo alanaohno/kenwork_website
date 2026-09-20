@@ -214,16 +214,16 @@
         "padding_bottom": 52
       }
     },
-    "image_banner_PwY7LM": {
+    "image_banner_nyMcNg": {
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/240505_24759_copy.jpg",
+        "image": "shopify://shop_images/230221_2393.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "custom_height_desktop": 0,
         "custom_height_mobile": 600,
-        "focal_x_mobile": 40,
+        "focal_x_mobile": 50,
         "focal_y_mobile": 50,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
@@ -272,15 +272,17 @@
         "padding_bottom": 52
       }
     },
-    "image_banner_3KpkJN": {
+    "image_banner_PwY7LM": {
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/240505_24796.jpg",
+        "image": "shopify://shop_images/240505_24759_copy.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "custom_height_desktop": 0,
         "custom_height_mobile": 600,
+        "focal_x_mobile": 40,
+        "focal_y_mobile": 50,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
@@ -328,48 +330,17 @@
         "padding_bottom": 52
       }
     },
-    "rich_text_X9gXeL": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_jgM8yX": {
-          "type": "heading",
-          "settings": {
-            "heading": "必要なケーブルだけ魅せる",
-            "heading_size": "h2"
-          }
-        },
-        "heading_axnQH4": {
-          "type": "heading",
-          "settings": {
-            "heading": "Show Only the Cables You Need",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_jgM8yX",
-        "heading_axnQH4"
-      ],
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "image_banner_nyMcNg": {
+    "image_banner_3KpkJN": {
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/230221_2393.jpg",
+        "image": "shopify://shop_images/240505_24861_ed7c21a5-7d83-45c8-92b7-4f4ae93c5927.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "custom_height_desktop": 0,
         "custom_height_mobile": 600,
+        "focal_x_mobile": 50,
+        "focal_y_mobile": 50,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
@@ -384,37 +355,6 @@
         "mobile_content_alignment": "center",
         "show_text_below": true
       }
-    },
-    "custom_liquid_YmMpVa": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "custom_css": [
-        ".center {display: block; margin: 0 auto; max-width: 100%; height: auto;}"
-      ],
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<img src=\"https://cdn.shopify.com/s/files/1/0985/6601/3207/files/Desk_configurations_medium_1c14d904-bba9-43e9-9af1-04c311ef5226.gif?v=1770705939\" class=\"center\" />",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "video_Pw6Fz7": {
-      "type": "video",
-      "disabled": true,
-      "name": "t:sections.video.presets.name",
-      "settings": {
-        "heading": "Assemble in Under 5 Minutes",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://youtu.be/BV3beRLRX0s?si=_wk7WdPpXjjaobar",
-        "cover_image": "shopify://shop_images/240505_24910.jpg",
-        "description": "How to assemble in under 5 minutes",
-        "full_width": false,
-        "color_scheme": "scheme-5",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -426,11 +366,8 @@
     "rich_text_DnBiCA",
     "image_banner_nyMcNg",
     "rich_text_7pmmhr",
-    "image_banner_3KpkJN",
-    "rich_text_yn8D6E",
-    "rich_text_X9gXeL",
-    "custom_liquid_YmMpVa",
     "image_banner_PwY7LM",
-    "video_Pw6Fz7"
+    "rich_text_yn8D6E",
+    "image_banner_3KpkJN"
   ]
 }
