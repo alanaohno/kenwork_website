@@ -46,3 +46,9 @@
 .video-section__media.media-fit-cover video {
   object-fit: cover;
 }
+
+/* Embeds (YouTube/Vimeo) are always 16:9, so crop the cover image to fill the frame instead of sizing the frame to it */
+.video-section__poster img {
+  width: 100%;
+  object-fit: cover;
+}
