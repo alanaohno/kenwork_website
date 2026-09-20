@@ -455,7 +455,7 @@
         "image": "shopify://shop_images/230221_2912.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
-        "custom_height_desktop": 1560,
+        "custom_height_desktop": 1800,
         "custom_height_mobile": 580,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
