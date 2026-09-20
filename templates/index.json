@@ -12,12 +12,12 @@
     "hero_banner": {
       "type": "hero-media",
       "settings": {
-        "image": "shopify://shop_images/230221_2393.jpg",
+        "video": "shopify://files/videos/hero-video-reordered-30s.mp4",
         "focal_x": 33,
         "focal_y": 40,
         "focal_x_mobile": 40,
         "focal_y_mobile": 50,
-        "overlay_opacity": 10,
+        "overlay_opacity": 0,
         "heading": "Office Furniture for your Living Room",
         "subheading": "リビングに置けるオフィス家具",
         "height_desktop": 100,
@@ -365,7 +365,7 @@
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/240505_24861_ed7c21a5-7d83-45c8-92b7-4f4ae93c5927.jpg",
+        "image": "shopify://shop_images/230221_2393.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "custom_height_desktop": 0,
@@ -424,13 +424,13 @@
     "blocks_iQfUPx",
     "featured-product",
     "rich_text_DnBiCA",
-    "image_banner_PwY7LM",
+    "image_banner_nyMcNg",
     "rich_text_7pmmhr",
     "image_banner_3KpkJN",
     "rich_text_yn8D6E",
     "rich_text_X9gXeL",
-    "image_banner_nyMcNg",
     "custom_liquid_YmMpVa",
+    "image_banner_PwY7LM",
     "video_Pw6Fz7"
   ]
 }
