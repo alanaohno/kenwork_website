@@ -80,7 +80,7 @@
       "settings": {
         "title": "Collections",
         "heading_size": "h2",
-        "image_ratio": "square",
+        "image_ratio": "adapt",
         "columns_desktop": 2,
         "color_scheme": "scheme-2",
         "show_view_all": false,
