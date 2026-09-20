@@ -62,7 +62,7 @@
   {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
     <div class="hero-media__content">
       {%- if section.settings.heading != blank -%}
-        <h1 class="hero-media__heading">{{ section.settings.heading }}</h1>
+        <h1 class="hero-media__heading">{{ section.settings.heading | escape | replace: '|', ' <br class="hero-media__break">' }}</h1>
       {%- endif -%}
       {%- if section.settings.subheading != blank -%}
         <p class="hero-media__subheading">{{ section.settings.subheading }}</p>
@@ -148,6 +148,13 @@
     overflow-wrap: break-word;
   }
 
+  /* "|" in the heading setting marks a line break that only applies on mobile */
+  @media screen and (min-width: 750px) {
+    .hero-media__break {
+      display: none;
+    }
+  }
+
   .hero-media__subheading {
     margin: 1.2rem 0 0;
     max-width: 100%;
@@ -163,7 +170,9 @@
     }
 
     .hero-media__heading {
-      font-size: 7.4vw;
+      /* small enough for the whole heading to fit on one line */
+      font-size: 5.8vw;
+      white-space: nowrap;
     }
 
     .hero-media__subheading {
@@ -263,7 +272,8 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Office Furniture for your Living Room"
+      "info": "Use | to mark line breaks on mobile.",
+      "default": "Office Furniture|for your|Living Room"
     },
     {
       "type": "text",
