@@ -964,6 +964,11 @@ a.product__text {
     align-items: center;
   }
 
+  /* Keep photos hidden by variant-photos.js out of the swipeable gallery */
+  .product__media-item[hidden] {
+    display: none;
+  }
+
   .product__modal-opener {
     width: 100%;
   }
