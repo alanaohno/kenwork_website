@@ -115,6 +115,23 @@
     .template-index .header-wrapper.shopify-section-header-sticky {
       background: rgb(var(--color-background)) !important;
     }
+
+    /* Dark green menu text and logo while the header floats over the photo; the sticky bar keeps its light look on solid green */
+    .template-index .header-wrapper:not(.shopify-section-header-sticky) {
+      --color-foreground: 24, 53, 26;
+    }
+
+    .header__heading-logo--home {
+      display: none;
+    }
+
+    .template-index .header-wrapper:not(.shopify-section-header-sticky) .header__heading-logo:not(.header__heading-logo--home) {
+      display: none;
+    }
+
+    .template-index .header-wrapper:not(.shopify-section-header-sticky) .header__heading-logo--home {
+      display: inline;
+    }
   {%- endif -%}
 {%- endstyle -%}
 
@@ -188,6 +205,15 @@
                 sizes: sizes,
                 preload: true
             }}
+            {%- if request.page_type == 'index' -%}
+              <img
+                class="header__heading-logo header__heading-logo--home motion-reduce"
+                src="{{ 'logo-green.png' | asset_url }}"
+                alt="{{ logo_alt }}"
+                width="{{ settings.logo_width }}"
+                height="{{ logo_height }}"
+              >
+            {%- endif -%}
           </div>
         {%- else -%}
           <span class="h2">{{ shop.name }}</span>
@@ -232,6 +258,15 @@
                 sizes: sizes,
                 preload: true
             }}
+            {%- if request.page_type == 'index' -%}
+              <img
+                class="header__heading-logo header__heading-logo--home motion-reduce"
+                src="{{ 'logo-green.png' | asset_url }}"
+                alt="{{ logo_alt }}"
+                width="{{ settings.logo_width }}"
+                height="{{ logo_height }}"
+              >
+            {%- endif -%}
           </div>
         {%- else -%}
           <span class="h2">{{ shop.name }}</span>
