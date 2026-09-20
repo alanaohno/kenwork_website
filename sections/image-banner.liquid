@@ -53,6 +53,15 @@
   {%- endstyle -%}
 {%- endif -%}
 
+{%- style -%}
+  @media screen and (max-width: 749px) {
+    /* !important: Shopify adds an inline object-position from the image's saved focal point in Files */
+    #Banner-{{ section.id }} .banner__media > img {
+      object-position: {{ section.settings.focal_x_mobile }}% {{ section.settings.focal_y_mobile }}% !important;
+    }
+  }
+{%- endstyle -%}
+
 {%- if section.settings.enable_precise_position -%}
   {%- style -%}
     #Banner-{{ section.id }} .banner__content {
@@ -328,6 +337,28 @@
       "default": 600,
       "label": "Custom height override (mobile)",
       "info": "0 = use the Image height preset above. Overrides it when set."
+    },
+    {
+      "type": "range",
+      "id": "focal_x_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "Image focal point: horizontal (mobile)",
+      "info": "Phones crop the sides when a custom mobile height is set. Set this to the horizontal position of the subject (0 = left, 100 = right)."
+    },
+    {
+      "type": "range",
+      "id": "focal_y_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50,
+      "label": "Image focal point: vertical (mobile)",
+      "info": "0 = top, 100 = bottom."
     },
     {
       "type": "select",

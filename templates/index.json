@@ -223,6 +223,8 @@
         "image_height": "adapt",
         "custom_height_desktop": 0,
         "custom_height_mobile": 600,
+        "focal_x_mobile": 40,
+        "focal_y_mobile": 50,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
