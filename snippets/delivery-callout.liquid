@@ -29,7 +29,8 @@
       assign delivery_headline = 'Made to Order'
       assign delivery_detail = 'Ships in 6-10 weeks'
       assign shipping_headline = 'Air Freight with DDP'
-      assign shipping_detail = 'Shipping fee includes all duties, taxes, and standard handling fees'
+      assign shipping_detail = 'Shipping fee includes all duties, tariffs, and taxes'
+      assign show_policy_link = true
   endcase
 -%}
 
@@ -37,7 +38,7 @@
   <style>
     .delivery-callout {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
       gap: 1.2rem;
       margin: 2.8rem 0;
       text-align: center;
