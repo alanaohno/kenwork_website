@@ -339,7 +339,7 @@
         "heading_axnQH4": {
           "type": "heading",
           "settings": {
-            "heading": "show only the cables you need",
+            "heading": "Show Only the Cables You Need",
             "heading_size": "h2"
           }
         }
@@ -402,7 +402,7 @@
       "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
-        "heading": "assemble in under 5 minutes",
+        "heading": "Assemble in Under 5 Minutes",
         "heading_size": "h1",
         "enable_video_looping": false,
         "video_url": "https://youtu.be/BV3beRLRX0s?si=_wk7WdPpXjjaobar",
