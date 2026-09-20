@@ -20,8 +20,6 @@
         "overlay_opacity": 10,
         "heading": "Office Furniture for your Living Room",
         "subheading": "リビングに置けるオフィス家具",
-        "top_buffer": 100,
-        "top_buffer_mobile": 60,
         "height_desktop": 100,
         "height_mobile": 85
       }
