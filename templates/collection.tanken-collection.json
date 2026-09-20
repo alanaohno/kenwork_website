@@ -90,7 +90,7 @@
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "add-ons",
-        "products_to_show": 2,
+        "products_to_show": 3,
         "title": "Add-ons",
         "heading_size": "h2",
         "description": "",
