@@ -169,6 +169,35 @@
   }
 {% endstylesheet %}
 
+{% javascript %}
+  /* iOS Safari can leave an autoplay video paused (Low Power Mode, or if the
+     `muted` attribute isn't applied before playback is attempted). Set muted as a
+     property, call play() ourselves, and retry on the first touch as a last resort. */
+  (() => {
+    const start = (video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute('playsinline', '');
+      const attempt = () => video.play().catch(() => {});
+      attempt();
+      video.addEventListener('loadeddata', attempt, { once: true });
+      document.addEventListener('visibilitychange', () => !document.hidden && video.paused && attempt());
+      // only touchend/click count as a user gesture for play() on iOS; keep listening until it actually plays
+      const onGesture = () => {
+        if (!video.paused) return removeGestureListeners();
+        attempt();
+      };
+      const gestureEvents = ['touchend', 'click'];
+      const removeGestureListeners = () =>
+        gestureEvents.forEach((type) => document.removeEventListener(type, onGesture));
+      gestureEvents.forEach((type) => document.addEventListener(type, onGesture, { passive: true }));
+      video.addEventListener('playing', removeGestureListeners, { once: true });
+    };
+
+    document.querySelectorAll('.hero-media__video').forEach(start);
+  })();
+{% endjavascript %}
+
 {% schema %}
 {
   "name": "Hero media",
