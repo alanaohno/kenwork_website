@@ -33,13 +33,25 @@
           alt: section.settings.image.alt,
           fetchpriority: fetch_priority
       }}
+    {%- elsif section.settings.video != blank -%}
+      {{
+        section.settings.video.preview_image
+        | image_url: width: 3840
+        | image_tag:
+          class: 'hero-media__image',
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+          alt: '',
+          fetchpriority: fetch_priority
+      }}
     {%- else -%}
       {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero-media__image placeholder-svg' }}
     {%- endif -%}
 
     {%- comment -%}
       Video (when set) plays over the image. The image stays underneath as the
-      poster / fallback while the video loads or if autoplay is blocked.
+      poster / fallback while the video loads or if autoplay is blocked. With a
+      video and no image, the video's own preview frame is used as the image.
     {%- endcomment -%}
     {%- if section.settings.video != blank -%}
       {{
@@ -178,19 +190,23 @@
       video.muted = true;
       video.defaultMuted = true;
       video.setAttribute('playsinline', '');
-      const attempt = () => video.play().catch(() => {});
+      const attempt = () => video.paused && video.play().catch(() => {});
       attempt();
-      video.addEventListener('loadeddata', attempt, { once: true });
-      document.addEventListener('visibilitychange', () => !document.hidden && video.paused && attempt());
-      // only touchend/click count as a user gesture for play() on iOS; keep listening until it actually plays
-      const onGesture = () => {
-        if (!video.paused) return removeGestureListeners();
-        attempt();
-      };
-      const gestureEvents = ['touchend', 'click'];
+      // Private browsing tabs can defer or refuse the first play(); retry on every signal
+      // that the video is ready, was paused by the browser, or the page came back.
+      ['loadeddata', 'canplay', 'suspend', 'pause', 'stalled'].forEach((type) => video.addEventListener(type, attempt));
+      window.addEventListener('pageshow', attempt);
+      document.addEventListener('visibilitychange', () => !document.hidden && attempt());
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => entries.some((e) => e.isIntersecting) && attempt()).observe(video);
+      }
+      // Fall back to user input until it actually plays. Scroll and touch events are included
+      // because the video starts on scroll in iOS private tabs; touchend/click are real gestures.
+      const gestureEvents = ['touchstart', 'touchend', 'click', 'scroll'];
+      const onGesture = () => (video.paused ? attempt() : removeGestureListeners());
       const removeGestureListeners = () =>
-        gestureEvents.forEach((type) => document.removeEventListener(type, onGesture));
-      gestureEvents.forEach((type) => document.addEventListener(type, onGesture, { passive: true }));
+        gestureEvents.forEach((type) => window.removeEventListener(type, onGesture));
+      gestureEvents.forEach((type) => window.addEventListener(type, onGesture, { passive: true }));
       video.addEventListener('playing', removeGestureListeners, { once: true });
     };
 
